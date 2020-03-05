@@ -386,7 +386,7 @@ A list element (`ul`, `ol`), is styled by removing the default bullets or number
 
 Input elements are styled by removing the default outline and the user resizing ability.
 
-The `.{$breakpoint}m0` or `m{t | r | b | l}-0`, `.padding-0` specifies that there is no margin or padding for the specified direction/directions.
+The `.{$breakpoint}m0` or `m{t | r | b | l}-0`, `.p0` specifies that there is no margin or padding for the specified direction/directions.
 
 `$breakpoint` = \[ , `medium-`, `large-`, `larger-`\]
 ```html
