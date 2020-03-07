@@ -495,8 +495,8 @@ This file contains some mixins and variables that can help in writing media quer
     }
   }
   //the on() mixin is a short way of writing
-  //min($breakpoint)
-  //or max($breakpoint)
-  //or range($start, $end)
+  //min($breakpoint) {content}
+  //or max($breakpoint) {content}
+  //or range($start, $end) {content}
 ```
 Take a look at the [_breakpoints.scss](https://github.com/Sanusihassan/flex-system/blob/master/scss/_breakpoints.scss) file.
