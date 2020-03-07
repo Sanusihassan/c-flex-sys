@@ -30,6 +30,7 @@
 .container, .flex-sys.container {
   display: block;
   margin: 0 auto;
+  max-width: 100%;
 }
 .container .container {
   width: 100% !important;
@@ -101,12 +102,12 @@
   display: -ms-inline-flexbox !important;
   display: inline-flex !important;
 }
-.flex-row:not(.default):not([class*=cross]), .flex-column:not(.default):not([class*=cross]), .row-reversed:not(.default):not([class*=cross]), .column-reversed:not(.default):not([class*=cross]) {
+.flex-row:not(.default):not([class*=cross]):not([class=stretch]), .flex-column:not(.default):not([class*=cross]):not([class=stretch]), .row-reversed:not(.default):not([class*=cross]):not([class=stretch]), .column-reversed:not(.default):not([class*=cross]):not([class=stretch]) {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
 }
-.flex-row:not(.default):not([class*=line]), .flex-column:not(.default):not([class*=line]), .row-reversed:not(.default):not([class*=line]), .column-reversed:not(.default):not([class*=line]) {
+.flex-row:not(.default):not([class*=line]):not([class=line-stretch]), .flex-column:not(.default):not([class*=line]):not([class=line-stretch]), .row-reversed:not(.default):not([class*=line]):not([class=line-stretch]), .column-reversed:not(.default):not([class*=line]):not([class=line-stretch]) {
   -ms-flex-line-pack: start;
       align-content: flex-start;
 }
