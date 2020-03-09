@@ -430,6 +430,8 @@ The `.circle` class makes an element to appear like a circle.
   <!-- .capsule or .sausage -->
   <button class="capsule">sausage button</button>
 ```
+![capsule shape](./assets/sausage.png)
+
 #### Text Formatting
 |Class|Difinition|
 |--- |--- |
