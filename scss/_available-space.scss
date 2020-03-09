@@ -5,12 +5,6 @@
     @include flex-system();
 }
 /*
-    .available class takes the available space
-*/
-@include each-breakpoint(available, on, "available-each > *") {
-    flex: 1 1 0%;
-}
-/*
     .order-n classes specifies element order inside the flex parent n = [1-6]
 */
 @include orders();

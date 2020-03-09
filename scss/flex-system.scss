@@ -11,6 +11,13 @@
 /*
     flex-system grid classes specifies element width/height inside a flex parent
 */
+/*
+    .available class takes the available space
+*/
+@include each-breakpoint(available, on, "available-each > *") {
+    flex: 1 1 0%;
+}
+//grid system classes has priority over .available classes
 @include flex-system();
 $include-spacing-classes: true;
 @import "./available-space";

@@ -22,16 +22,18 @@ ___
 
 ## Usage
 * `.container` class creates a container or a wrapper around elements.
- * `.container.on{$breakpoint}full-screen` takes the entire width of the screen within the specified range.
+![.container class](./assets/container.jpg)
+* `.container.on{$breakpoint}full-screen` takes the entire width of the screen within the specified range.
 
- `$breakpoint` = \[`small-`, `medium-`, `large-`, `larger-`\]
- * `.container.sp-right-0` specifies that there is no white space on the right side of the
-   `.container` class.
- * `.container.sp-left-0` does the same thing but in the left direction.
- 
- * the `.container.sp-{left/right}-0` works only from large screens and up.
+`$breakpoint` = \[`small-`, `medium-`, `large-`, `larger-`\]
+* `.container.sp-right-0` specifies that there is no white space on the right side of the
+  `.container` class.
+* `.container.sp-left-0` does the same thing but in the left direction.
 
+* the `.container.sp-{left/right}-0` works only from large screens and up.
+![.container.sp-right-0](./assets/container-sp.png)
 Use `.flex-sys.container` to reduce conflict if you are using another css framework that uses the same name.
+
 ```html
   <section class="container">
     <!-- content -->
@@ -42,7 +44,10 @@ Use `.flex-sys.container` to reduce conflict if you are using another css framew
     <!-- flex-system container -->
   </section>
 ```
+
 * The remaining space `100% of the screen width - .container width` is stored in the `.remaining` class.
+![.remaining class](./assets/remaining.png)
+
 ```html
 <aside class="remaining">
   <nav>
@@ -64,6 +69,7 @@ Use `.flex-sys.container` to reduce conflict if you are using another css framew
 The _**flex row**_ and _**flex column**_ classes are displayed as flex.
 
 The `.inline-flex` class makes an element to be displayed as `inline-flex` container, it can be used width **<q>flex row</q>** containers and **<q>flex column</q>** containers.
+![row_column containers](./assets/row_column.jpg)
 ```html
   <div class="column-onsmall flex-row">
     <!-- onsmall stack on top of each other, but from medium and up stay in one row -->
@@ -108,6 +114,9 @@ The `.from-{$breakpoint}-wrap` classes specifies that flex items will wrap start
 Grid system classes specifies element dimentions inside a flex parent.
 
 flex-system uses 12 columns grid system.
+![grid system classes](./assets/row_grid.png)
+
+![grid system classes](./assets/column_grid.png)
 ### Syntax
 `{$breakpoint}{$prefix-}{$suffix}`
 
@@ -145,6 +154,7 @@ The `"slice"` `prefix` is only used with \[`1`, `2`, `5`, `7` to `11`\] `suffixe
 ```
 ## Spacing Classes
 Spacing classes are "grid classes" - a number `$n`, which is \[`1 - 6`\], and they work within the specified range.
+![spacing classes](./assets/spacing.png)
 ### Syntax
 `{$breakpoint}{$prefix-}{$suffix-}m$n`
 
@@ -169,12 +179,12 @@ Spacing classes are "grid classes" - a number `$n`, which is \[`1 - 6`\], and th
   </div>
   <div class="flex-row">
     <!-- (2 slices) ~ 16.666% -->
-    <div class="slice-2"></div>
+    <div class="slice-2 item">two slices</div>
     <!-- the available space (10 slices) ~ 83.334% -->
-    <div class="available">i'll take the available space globally</div>
+    <div class="available item">i'll take the available space globally</div>
   </div>
 ```
-
+![.available class](./assets/available.png)
 ### Element Order
 `.{$breakpoint}order-$n` classes specifies element order inside the flex parent `$n` = \[`1 - 6`\].
 
@@ -214,6 +224,8 @@ The `.space-$direction` or `.{$breakpoint}sp-$direction` classes are used to dis
     <div class="third-m5">flex-item</div>
   </div>
 ```
+
+![*row-* classes](./assets/justify_content.gif)
 ### Flex Lines Alignment
 Flex lines alignment classes sets the distribution of space between and around content **items** along the cross-axis.
 
@@ -244,7 +256,7 @@ Flex lines alignment classes are the same as main axis alignment classes with so
     <div>me too</div>
   </div>
 ```
-
+![*line-* classes](./assets/align_content.gif)
 ### Alignment On The Cross Axis Classes For Flex Parent
 The `.{$breakpoint}cross-$direction` classes are used to distribute space in the cross axis of a flex container.
 
@@ -252,9 +264,9 @@ The `.{$breakpoint}cross-$direction` classes are used to distribute space in the
 > the `start` value is used by default in flex-system, if you want the property's default value use the `.default` or the `.stretch` classes.
 #### Example
 ```html
-  <div class="flex-row cross-end onmedium-stretch onlarge-cross-start">
+  <div class="flex-row fill row-start default cross-end onmedium-stretch onlarge-cross-start">
     <div class="available onlarge-8">item</div>    
-    <div class="half onlarge-4">item</div>    
+    <div class="half onlarge-third">item</div>    
   </div>
   <!-- the default value -->
   <div class="flex-row stretch space-between">
@@ -267,6 +279,7 @@ The `.{$breakpoint}cross-$direction` classes are used to distribute space in the
     ...
   </div>
 ```
+![*cross-* classes](./assets/align_items.gif)
 ### Alignment On The Cross Axis Classes For Flex Item
 The `.{$breakpoint}self-$direction` classes specifies the distribution of the available space in the cross axis for a flex item.
 `$direction` = \[`start`, `center`, `end`, `baseline`, `stretch`\].
@@ -278,6 +291,7 @@ The `.{$breakpoint}self-$direction` classes specifies the distribution of the av
     <div class="available self-center">item #03</div>
   </div>
 ```
+![.*self-* classes](./assets/align_self.png)
 ### Auto Margins
 `.{$breakpoint}push-$direction`, `.{$breakpoint}-center-{x/y}` classes are used to push an element into a direction.
 
@@ -285,7 +299,7 @@ The `.{$breakpoint}self-$direction` classes specifies the distribution of the av
 #### Example
 ```html
   <div class="flex-row default">
-    <div class="push-right">i will be pushed to the left</div>
+    <div class="push-right">i will be pushed to the right</div>
   </div>
   <div class="flex-row default">
     <div class="onmedium-center-y">vertically centered from medium and up</div>
@@ -294,6 +308,7 @@ The `.{$breakpoint}self-$direction` classes specifies the distribution of the av
     <div class="onlarger-right">i'll go right onlarger screens and up</div>
   </div>
 ```
+![auto margins classes](./assets/auto_margins.png)
 ### Display Toggling Classes
 The `.none` class hides an element.
 #### Display On Breakpoint Ranges
@@ -324,11 +339,14 @@ by default headings font-size is scalable when using flex system.
 <!-- reducing conflict -->
 <h1 class="flex-sys h1">respnsive typography</h1>
 ```
+![responsive typography](./assets/responsive_typography.gif)
 #### Responsive Paragraph
 `.responsive` class makes a paragraph font-size responsive with the width of the screen.
 ```html
-<p class="responsive">this is a responsive paragraph</p>
+<p class="responsive">this is a responsive paragraph (resize the window).</p>
 ```
+<p style="font-size: calc(1.15em + .15vw);transition: .2s">this is a responsive paragraph (resize the window).</p>
+
 ### Utility Classes
 flex-system comes with some classes that can help you in a lot of situations.
 #### Text alignment

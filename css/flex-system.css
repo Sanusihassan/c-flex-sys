@@ -272,6 +272,36 @@
 /*
     flex-system grid classes specifies element width/height inside a flex parent
 */
+/*
+    .available class takes the available space
+*/
+.available, .available-each > * {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+}
+
+@media only screen and (min-width: 600px) {
+  .onmedium-available, .onmedium-available-each > * {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 0%;
+            flex: 1 1 0%;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .onlarge-available, .onlarge-available-each > * {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 0%;
+            flex: 1 1 0%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .onlarger-available, .onlarger-available-each > * {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 0%;
+            flex: 1 1 0%;
+  }
+}
 .slice-1 {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 8.3333333333%;
@@ -2296,36 +2326,6 @@
     -webkit-box-flex: 0;
         -ms-flex: 0 1 94%;
             flex: 0 1 94%;
-  }
-}
-/*
-    .available class takes the available space
-*/
-.available, .available-each > * {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 0%;
-          flex: 1 1 0%;
-}
-
-@media only screen and (min-width: 600px) {
-  .onmedium-available, .onmedium-available-each > * {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 0%;
-            flex: 1 1 0%;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .onlarge-available, .onlarge-available-each > * {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 0%;
-            flex: 1 1 0%;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .onlarger-available, .onlarger-available-each > * {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 0%;
-            flex: 1 1 0%;
   }
 }
 /*
