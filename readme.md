@@ -342,10 +342,10 @@ by default headings font-size is scalable when using flex system.
 ![responsive typography](./assets/responsive_typography.gif)
 #### Responsive Paragraph
 `.responsive` class makes a paragraph font-size responsive with the width of the screen.
+
 ```html
 <p class="responsive">this is a responsive paragraph (resize the window).</p>
 ```
-<p style="font-size: calc(1.15em + .15vw);transition: .2s">this is a responsive paragraph (resize the window).</p>
 
 ### Utility Classes
 flex-system comes with some classes that can help you in a lot of situations.
