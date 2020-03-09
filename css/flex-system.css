@@ -121,7 +121,7 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-[class*=row] > * {
+[class*=row] > *:not(.container):not(.flex-sys.container):not(.flex-sys.container) {
   width: auto;
 }
 

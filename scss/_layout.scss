@@ -98,7 +98,7 @@
 /*.*row* classes will wrap by default*/
 [class*=row] {
     flex-wrap: wrap;
-    & > * {
+    & > *:not(.container):not(.flex-sys.container) {
         width: auto;
     }
 }
