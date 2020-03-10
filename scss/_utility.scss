@@ -126,7 +126,9 @@
     }
     ul:not(.default), ol:not(.default) {
         list-style-type: none;
-        @extend .m0;
+        &:not([class*=push]):not([class*=center-x]):not([class*=center-y]) {
+            @extend .m0;
+        }
         @extend .p0;
     }
     [type], textarea, button {

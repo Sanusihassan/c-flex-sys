@@ -12,13 +12,20 @@
 
 flex-system.css is an easy to use, mobile first responsive grid system framework based on css [flex-box](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox "Flexbox - Learn web development | MDN").
 ___
-<!-- ## Instalation
+## Instalation
+install with npm:
 ```bash
-  npm install flex-system
-  ```
+npm i flex-system
+```
+
+include files using cdn.js:
+
 ```html
-  <link rel="stylesheet" href="cdn-link-to-flex-system.com">
-  ``` -->
+  <!-- with spacing classes -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Sanusihassan/flex-system/css/flex-system.min.css">
+  <!-- without spacing classes -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Sanusihassan/flex-system/css/flex-system.min.css">
+  ```
 
 ## Usage
 * `.container` class creates a container or a wrapper around elements.
@@ -431,6 +438,8 @@ The `.circle` class makes an element to appear like a circle.
   <button class="capsule">sausage button</button>
 ```
 ![capsule shape](./assets/sausage.png)
+
+`.capsule-left/right` or `.sausage-left/right` classes makes the specified side of an element to appar like a capsule.
 
 #### Text Formatting
 |Class|Difinition|
