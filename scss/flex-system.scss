@@ -19,7 +19,7 @@
 }
 //grid system classes has priority over .available classes
 @include flex-system();
-$include-spacing-classes: false;
+$include-spacing-classes: true;
 @import "./available-space";
 @import "./display-toggling";
 @import "./responsive-typography";

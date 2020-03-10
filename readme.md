@@ -102,7 +102,7 @@ By default when using flex-system, flex items are defined to shrink if there is 
     <div>flex item</div>
   </div>
 ```
-## Wrapping behavior
+## Wrapping Behavior
 `Flex Row Containers`  will wrap by default.
 
 The `.nowrap` overwrites this behavior.
@@ -356,7 +356,7 @@ by default headings font-size is scalable when using flex system.
 
 ### Utility Classes
 flex-system comes with some classes that can help you in a lot of situations.
-#### Text alignment
+#### Text Alignment
 `.{$breakpoint}text-{$direction}` classes aligns text and inline-level elements in the spacified direction
 
 `$direction` = \[`start`, `end`, `left`, `right`, `center`, `justify`, `match-parent`\]
@@ -402,7 +402,7 @@ html and body elements will take the full height of the screen when using flex-s
 The element content will be resized to maintain its aspect ratio while filling the element's entire content box.
 
 The `img.middle-vertically`, `video.middle-vertically` makes an image or a video to be centered vertically
-#### reseting
+#### Reseting
 flex system is adding some styles for some elements and they will be ignored if `.default` class is used.
 
 A <a href="#">link</a> `(anchor tag)` is styled by removing the <u><a href="#">underline</a></u> and the default color making it's color to be the color of it's containing element.
@@ -490,7 +490,7 @@ This file contains some sass variables and placeholders.
     @extend %flex-column;
   }
 ```
-Take a look at the [_placeholder-variables.scss](https://github.com/Sanusihassan/flex-system/blob/master/scss/_placeholder-variables.scss) file.
+Take a look at the [_placeholder-variables.scss](./scss/_placeholder-variables.scss) file.
 
 <h4>_breakpoints.scss file</h4>
 
@@ -528,4 +528,4 @@ This file contains some mixins and variables that can help in writing media quer
   //or max($breakpoint) {content}
   //or range($start, $end) {content}
 ```
-Take a look at the [_breakpoints.scss](https://github.com/Sanusihassan/flex-system/blob/master/scss/_breakpoints.scss) file.
+Take a look at the [_breakpoints.scss](./scss/_breakpoints.scss) file.
