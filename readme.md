@@ -24,7 +24,7 @@ include files using cdn.js:
   <!-- with spacing classes -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Sanusihassan/flex-system/css/flex-system.min.css">
   <!-- without spacing classes -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Sanusihassan/flex-system/css/flex-system.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Sanusihassan/flex-system/css/flex-sys-nospacing.min.css">
   ```
 
 ## Usage

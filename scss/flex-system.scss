@@ -1,5 +1,5 @@
 /*!
-*   flex-system.css v1.0.2
+*   flex-system.css v1.0.3
 *   (c) 2019 - 2020 by Sanusi Hassan
 *   licance: MIT
 */
@@ -19,7 +19,7 @@
 }
 //grid system classes has priority over .available classes
 @include flex-system();
-$include-spacing-classes: true;
+$include-spacing-classes: false;
 @import "./available-space";
 @import "./display-toggling";
 @import "./responsive-typography";
