@@ -8,12 +8,14 @@
 |/                        \|                       
 
 -->
-<h1>What Is flex-system.css</h1>
+# What Is flex-system.css
 
 flex-system.css is an easy to use, mobile first responsive grid system framework based on css [flex-box](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox "Flexbox - Learn web development | MDN").
-___
+
 ## Instalation
+
 install with npm:
+
 ```bash
 npm i flex-system
 ```

@@ -1,5 +1,5 @@
 /*!
-*   flex-system.css v1.0.3
+*   flex-system.css v1.0.4
 *   (c) 2019 - 2020 by Sanusi Hassan
 *   licance: MIT
 */
@@ -102,14 +102,10 @@
   display: -ms-inline-flexbox !important;
   display: inline-flex !important;
 }
-.flex-row:not(.default):not([class*=cross]):not([class=stretch]), .flex-column:not(.default):not([class*=cross]):not([class=stretch]), .row-reversed:not(.default):not([class*=cross]):not([class=stretch]), .column-reversed:not(.default):not([class*=cross]):not([class=stretch]) {
+.flex-row:not(.default), .flex-column:not(.default), .row-reversed:not(.default), .column-reversed:not(.default) {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-}
-.flex-row:not(.default):not([class*=line]):not([class=line-stretch]), .flex-column:not(.default):not([class*=line]):not([class=line-stretch]), .row-reversed:not(.default):not([class*=line]):not([class=line-stretch]), .column-reversed:not(.default):not([class*=line]):not([class=line-stretch]) {
-  -ms-flex-line-pack: start;
-      align-content: flex-start;
 }
 .flex-row.noshrink-each > *, .flex-row .noshrink, .flex-column.noshrink-each > *, .flex-column .noshrink, .row-reversed.noshrink-each > *, .row-reversed .noshrink, .column-reversed.noshrink-each > *, .column-reversed .noshrink {
   -ms-flex-negative: 0;

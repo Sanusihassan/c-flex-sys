@@ -81,12 +81,7 @@
         display: inline-flex !important;
     }
     &:not(.default) {
-        &:not([class*=cross]):not([class=stretch]) {
-            align-items: flex-start;
-        }
-        &:not([class*=line]):not([class=line-stretch]) {
-            align-content: flex-start;
-        }
+        align-items: flex-start;
     }
     &, & > * {
         @include border-box();
