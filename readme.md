@@ -10,7 +10,7 @@
 -->
 # What Is flex-system.css
 
-flex-system.css is an easy to use, mobile first responsive grid system framework based on css [flex-box](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox "Flexbox - Learn web development | MDN").
+flex-system.css is a grid system framework based on [flex box](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox "Flexbox - Learn web development | MDN").
 
 ## Instalation
 
