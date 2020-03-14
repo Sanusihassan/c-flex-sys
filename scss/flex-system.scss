@@ -1,9 +1,12 @@
 /*!
-*   flex-system.css v1.0.5
+*   flex-system.css v1.0.6
 *   (c) 2019 - 2020 by Sanusi Hassan
 *   licance: MIT
 */
 @import "./global-variables";
+:root {
+    --amount: 0.79rem;
+}
 @import "./placeholder-variables";
 @import "./global-mixins";
 @import "./breakpoints";

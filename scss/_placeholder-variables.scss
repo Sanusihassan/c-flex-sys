@@ -1,4 +1,4 @@
-///   flex-system.css v1.0.5
+///   flex-system.css v1.0.6
 ///   (c) 2019 - 2020 by Sanusi Hassan
 ///   licance: MIT
 
@@ -53,29 +53,28 @@ $fill :
    100%;
 
 //flex-system typography variables
-$amount: 0.79rem;
 $h6 :
-   calc(#{$amount} + 0.99vw);
+   calc(#{var(--amount)} + 0.99vw);
 
 
 $h5 :
-   calc(#{$amount} + 1.98vw);
+   calc(#{var(--amount)} + 1.98vw);
 
 
 $h4 :
-   calc(#{$amount} + 2.97vw);
+   calc(#{var(--amount)} + 2.97vw);
 
 
 $h3 :
-   calc(#{$amount} + 3.96vw);
+   calc(#{var(--amount)} + 3.96vw);
 
 
 $h2 :
-   calc(#{$amount} + 4.95vw);
+   calc(#{var(--amount)} + 4.95vw);
 
 
 $h1 :
-   calc(#{$amount} + 5.94vw);
+   calc(#{var(--amount)} + 5.94vw);
 //flex-system layout placeholders
 %flex {
    display: flex;

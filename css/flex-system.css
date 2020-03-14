@@ -1,8 +1,12 @@
 /*!
-*   flex-system.css v1.0.5
+*   flex-system.css v1.0.6
 *   (c) 2019 - 2020 by Sanusi Hassan
 *   licance: MIT
 */
+:root {
+  --amount: 0.79rem;
+}
+
 *, ::before, ::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -3208,27 +3212,27 @@ h6, .flex-sys.h6, h5, .flex-sys.h5, h4, .flex-sys.h4, h3, .flex-sys.h3, h2, .fle
 }
 
 h6, .flex-sys.h6 {
-  font-size: calc(0.79rem + 0.99vw);
+  font-size: calc(var(--amount) + 0.99vw);
 }
 
 h5, .flex-sys.h5 {
-  font-size: calc(0.79rem + 1.98vw);
+  font-size: calc(var(--amount) + 1.98vw);
 }
 
 h4, .flex-sys.h4 {
-  font-size: calc(0.79rem + 2.97vw);
+  font-size: calc(var(--amount) + 2.97vw);
 }
 
 h3, .flex-sys.h3 {
-  font-size: calc(0.79rem + 3.96vw);
+  font-size: calc(var(--amount) + 3.96vw);
 }
 
 h2, .flex-sys.h2 {
-  font-size: calc(0.79rem + 4.95vw);
+  font-size: calc(var(--amount) + 4.95vw);
 }
 
 h1, .flex-sys.h1 {
-  font-size: calc(0.79rem + 5.94vw);
+  font-size: calc(var(--amount) + 5.94vw);
 }
 
 /*responsive paragraph*/

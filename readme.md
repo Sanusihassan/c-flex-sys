@@ -452,7 +452,8 @@ The `.circle` class makes an element to appear like a circle.
 
 `.text-nowrap` class suppresses line break (text wrapping).
 
-`.system-font` class makes an elements font to be like the devices system font.
+`.system-font` class makes an elements font to be the available font on the devices.
+
 #### Positioning Classes
 positioning classes specifies how element is positioned.
 
@@ -480,10 +481,12 @@ This file contains some sass variables and placeholders.
   }
   //typography variables
   /*
-    increase or decrease the $amount variable to change the size of a typography variable
+    increase or decrease the css --amount variable to change the size of a typography variable
   */
+  :root {
+    --amount: 0.5rem;//0.79rem is the default value
+  }
   h1 {
-    $amount: 0.5rem;//0.79rem is the default value
     font-size: $h1;//or $h2 to $h6
   }
   //placeholders
