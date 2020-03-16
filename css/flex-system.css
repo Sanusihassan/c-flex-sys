@@ -1,5 +1,5 @@
 /*!
-*   flex-system.css v1.0.6
+*   flex-system.css v1.0.7
 *   (c) 2019 - 2020 by Sanusi Hassan
 *   licance: MIT
 */
@@ -3207,31 +3207,31 @@
     display: block;
   }
 }
-h6, .flex-sys.h6, h5, .flex-sys.h5, h4, .flex-sys.h4, h3, .flex-sys.h3, h2, .flex-sys.h2, h1, .flex-sys.h1 {
+h6:not(.default), .flex-sys.h6:not(.default), h5:not(.default), .flex-sys.h5:not(.default), h4:not(.default), .flex-sys.h4:not(.default), h3:not(.default), .flex-sys.h3:not(.default), h2:not(.default), .flex-sys.h2:not(.default), h1:not(.default), .flex-sys.h1:not(.default) {
   font-weight: 300;
 }
 
-h6, .flex-sys.h6 {
+h6:not(.default), .flex-sys.h6:not(.default) {
   font-size: calc(var(--amount) + 0.99vw);
 }
 
-h5, .flex-sys.h5 {
+h5:not(.default), .flex-sys.h5:not(.default) {
   font-size: calc(var(--amount) + 1.98vw);
 }
 
-h4, .flex-sys.h4 {
+h4:not(.default), .flex-sys.h4:not(.default) {
   font-size: calc(var(--amount) + 2.97vw);
 }
 
-h3, .flex-sys.h3 {
+h3:not(.default), .flex-sys.h3:not(.default) {
   font-size: calc(var(--amount) + 3.96vw);
 }
 
-h2, .flex-sys.h2 {
+h2:not(.default), .flex-sys.h2:not(.default) {
   font-size: calc(var(--amount) + 4.95vw);
 }
 
-h1, .flex-sys.h1 {
+h1:not(.default), .flex-sys.h1:not(.default) {
   font-size: calc(var(--amount) + 5.94vw);
 }
 

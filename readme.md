@@ -341,12 +341,27 @@ If you want to display an element as block use the `.display-from-{$breakpoint}.
 flex-system.css supports responsive typography.
 #### Headings
 by default headings font-size is scalable when using flex system.
+
+if you don't want your headings to be styled with flex-system use the `.default` class.
+
 #### Examples
 ```html
 <h1>respnsive typography</h1>
 
 <!-- reducing conflict -->
 <h1 class="flex-sys h1">respnsive typography</h1>
+<!-- default headding -->
+<h1 class="default">default</h1>
+```
+
+```css
+/*
+  you can increase or decrease your headings font-size by modifing the css --amount variable
+*/
+/*or any custom selector*/
+:root {
+  --amount: .25em;/* default value is 0.79rem */
+}
 ```
 ![responsive typography](./assets/responsive_typography.gif)
 #### Responsive Paragraph
@@ -375,11 +390,15 @@ flex-system comes with some classes that can help you in a lot of situations.
 </div>
 ```
 it is very important to define the direction of the page if you want a cross browser support.
+
 ```html
 <html lang="en" dir="ltr">
-  <!-- if you are using a language that uses (rtl) direction you don't need to define the dir attribute you'll just define the lang attribute -->
+  <!--
+    if you are using a language that uses (rtl) direction (like arabic)
+    you don't need to define the dir attribute you'll just define the lang attribute
+  -->
   <div lang="ar">
-   <p class="text-center onlarge-text-start"> 
+    <p class="text-center onlarge-text-start"> 
      مرحبا أيها العالم
     </p>
   </div>
@@ -468,7 +487,7 @@ Use the `.clip-overflow` to hide the overflowed content of any element.
 ### Sass
 if you are using sass, flex-system offers two files that can help you in writing faster css.
 
-<h4>_placeholder-variables.scss file</h4>
+#### _placeholder-variables.scss file
 
 This file contains some sass variables and placeholders.
 ```scss
@@ -482,6 +501,7 @@ This file contains some sass variables and placeholders.
   //typography variables
   /*
     increase or decrease the css --amount variable to change the size of a typography variable
+    and headings
   */
   :root {
     --amount: 0.5rem;//0.79rem is the default value
@@ -497,7 +517,7 @@ This file contains some sass variables and placeholders.
 ```
 Take a look at the [_placeholder-variables.scss](./scss/_placeholder-variables.scss) file.
 
-<h4>_breakpoints.scss file</h4>
+#### _breakpoints.scss file
 
 This file contains some mixins and variables that can help in writing media queries.
 ```scss
