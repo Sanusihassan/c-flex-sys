@@ -32,15 +32,18 @@ include files using cdn.js:
 ## Usage
 * `.container` class creates a container or a wrapper around elements.
 ![.container class](./assets/container.jpg)
+
 * `.container.on{$breakpoint}full-screen` takes the entire width of the screen within the specified range.
 
 `$breakpoint` = \[`small-`, `medium-`, `large-`, `larger-`\]
-* `.container.sp-right-0` specifies that there is no white space on the right side of the
-  `.container` class.
+* `.container.sp-right-0` specifies that there is no white space on the right side of the element with `.container` class.
+
 * `.container.sp-left-0` does the same thing but in the left direction.
 
 * the `.container.sp-{left/right}-0` works only from large screens and up.
+
 ![.container.sp-right-0](./assets/container-sp.png)
+
 Use `.flex-sys.container` to reduce conflict if you are using another css framework that uses the same name.
 
 ```html
@@ -55,6 +58,7 @@ Use `.flex-sys.container` to reduce conflict if you are using another css framew
 ```
 
 * The remaining space `100% of the screen width - .container width` is stored in the `.remaining` class.
+
 ![.remaining class](./assets/remaining.png)
 
 ```html
@@ -64,16 +68,18 @@ Use `.flex-sys.container` to reduce conflict if you are using another css framew
   </nav>
 </aside>
 
-<section class="container">
+<section class="container sp-right-0">
   <!-- main content -->
 </section>
 ```
 
 #### Flex Row Containers
 
-`.flex-row`, `.row-on{$breakpoint}`, `.row-reversed` are (main/row)-aixs parents, their children/flex-items flows in a **row** or **row reversed** direction.
+`.flex-row`, `.row-on{$breakpoint}`, `.row-reversed` are row parents, their children/flex-items flows in a **row** direction.
 #### Flex Column Containers
-`.flex-column`, `.column-on{$breakpoint}`, `.column-reversed` creates a cross-axis parents, flex-items are stacked one after the another or the opposite direction.
+`.flex-column`, `.column-on{$breakpoint}`, `.column-reversed` creates a flex column parent, flex-items are stacked one after the another in the **column** direction.
+
+`.row-reversed` and `.column-reversed` specifies that **start** and **end** directions of a flex container are swiched.
 
 The _**flex row**_ and _**flex column**_ classes are displayed as flex.
 
@@ -86,11 +92,12 @@ The `.inline-flex` class makes an element to be displayed as `inline-flex` conta
   
   <!-- inline-flex -->
   <div class="inline-flex row-reversed">
-    <!-- flex in the inline direction and items are in a row but reversed from the normal flow of the document  -->
+    <!-- flex in the inline direction and items are in a row but reversed from the normal flow of the document -->
   </div>
 ```
 
 By default when using flex-system, flex items are defined to shrink if there is no space available, if you want to specify that flex items should not shrink use the `.noshrink-each` class with a _**flex row**_ containers or _**flex column**_ containers or `.noshrink` with a flex item.
+
 ```html
   <div class="flex-column noshrink-each">
     <div>flex item</div>
@@ -100,7 +107,7 @@ By default when using flex-system, flex items are defined to shrink if there is 
   </div>
   <div class="flex-row">
     <div>flex item</div>
-    <div class="noshrink">.noshrink can be used with a flex items</div>
+    <div class="noshrink">.noshrink can be used with a flex item</div>
     <div>flex item</div>
   </div>
 ```
@@ -123,6 +130,7 @@ The `.from-{$breakpoint}-wrap` classes specifies that flex items will wrap start
 Grid system classes specifies element dimentions inside a flex parent.
 
 flex-system uses 12 columns grid system.
+
 ![grid system classes](./assets/row_grid.png)
 
 ![grid system classes](./assets/column_grid.png)
@@ -162,7 +170,8 @@ The `"slice"` `prefix` is only used with \[`1`, `2`, `5`, `7` to `11`\] `suffixe
   </div>
 ```
 ## Spacing Classes
-Spacing classes are "grid classes" - a number `$n`, which is \[`1 - 6`\], and they work within the specified range.
+Spacing classes are "grid system classes" - a number `$n`, which is \[`1 - 6`\], and they work within the specified range.
+
 ![spacing classes](./assets/spacing.png)
 ### Syntax
 `{$breakpoint}{$prefix-}{$suffix-}m$n`
@@ -203,7 +212,7 @@ Spacing classes are "grid classes" - a number `$n`, which is \[`1 - 6`\], and th
 <div class="flex-column">
   <div class="fill order-3 onmedium-order-1">first onmedium and up, third onsmall</div>
   <div class="order-2">second</div>
-  <!-- reducing conflict for global breakpoint only -->
+  <!-- reducing conflict -->
   <div class="flex-sys order-1">first</div>
 </div>
 ```
@@ -215,7 +224,7 @@ The `.{$breakpoint}row-$direction` classes specifies flex items alignment within
 
 `start` is the default value. and it can be used from medium and up.
 
-The `.space-$direction` or `.{$breakpoint}sp-$direction` classes are used to distribute available space in the main axis.
+The `.space-$direction` or `.on{$breakpoint}sp-$direction` classes are used to distribute available space in the main axis.
 
 `$direction` = \[`between`, `around`, `evenly`\].
 #### Example
@@ -235,6 +244,7 @@ The `.space-$direction` or `.{$breakpoint}sp-$direction` classes are used to dis
 ```
 
 ![*row-* classes](./assets/justify_content.gif)
+
 ### Flex Lines Alignment
 Flex lines alignment classes sets the distribution of space between and around content **items** along the cross-axis.
 
@@ -321,20 +331,25 @@ The `.{$breakpoint}self-$direction` classes specifies the distribution of the av
 ### Display Toggling Classes
 The `.none` class hides an element.
 #### Display On Breakpoint Ranges
-The `.display-{$breakpoint}` displays an element as flex within a breakpoint range.
+The `.display-$breakpoint` displays an element as flex within a breakpoint range.
 
-If you want to display an element as block use the `.display-{$breakpoint}.as-block`.
+`$breakpoint` = \[`onsmall` , `onmedium`, `onlarge`, `onlarger`\]
+
+If you want to display an element as block use the `.display-{$breakpoint}.as-block` classes.
 #### Display Starting From A Breakpoint
-To display an element starting from a breakpoint use the `.display-from-$breakpoint`.
+To display an element starting from a breakpoint use the `.display-from-{$breakpoint}` classes.
 
-If you want to display an element as block use the `.display-from-{$breakpoint}.as-block`.
+If you want to display an element as block starting from a breakpoint use the `.display-from-$breakpoint.as-block` classes.
 #### Example
 ```html
-  <div class="none display-onmedium">
+  <div class="none display-onmedium">                                       
     i'll be displayed as flex onmedium only
   </div>
   <div class="none display-from-large as-block">
     i'll be visible from large screens and up as block level element
+  </div>
+  <div class="none display-onlarger">
+    i'll be visible from larger screens and up                                                                                        
   </div>
 ```
 ### Responsive Typography
@@ -342,7 +357,7 @@ flex-system.css supports responsive typography.
 #### Headings
 by default headings font-size is scalable when using flex system.
 
-if you don't want your headings to be styled with flex-system use the `.default` class.
+if you don't want this to happen, use the `.default` class.
 
 #### Examples
 ```html
@@ -356,16 +371,15 @@ if you don't want your headings to be styled with flex-system use the `.default`
 
 ```css
 /*
-  you can increase or decrease your headings font-size by modifing the css --amount variable
+  you can increase or decrease the amount of scaling by modifing the css --amount variable
 */
-/*or any custom selector*/
-:root {
+:root {/*or any custom selector*/
   --amount: .25em;/* default value is 0.79rem */
 }
 ```
 ![responsive typography](./assets/responsive_typography.gif)
 #### Responsive Paragraph
-`.responsive` class makes a paragraph font-size responsive with the width of the screen.
+`.responsive` class makes a paragraph font-size increase or decrease deppending on the screen width.
 
 ```html
 <p class="responsive">this is a responsive paragraph (resize the window).</p>
@@ -374,7 +388,7 @@ if you don't want your headings to be styled with flex-system use the `.default`
 ### Utility Classes
 flex-system comes with some classes that can help you in a lot of situations.
 #### Text Alignment
-`.{$breakpoint}text-{$direction}` classes aligns text and inline-level elements in the spacified direction
+`.{$breakpoint}text-{$direction}` classes aligns text and inline-level elements to the spacified direction
 
 `$direction` = \[`start`, `end`, `left`, `right`, `center`, `justify`, `match-parent`\]
 #### Example
@@ -407,7 +421,7 @@ it is very important to define the direction of the page if you want a cross bro
 #### Helper Classes
 `.full-width`, `.full-height`, `.full-width-height` classes specifies that an element should take full(width/height) or both of the containing element.
 
-html and body elements will take the full height of the screen when using flex-system, if you dont want that to happen, give either of them a `.default` class.
+html and body elements are taking the full height of the screen when using flex-system, if you dont want that to happen, give either of them a `.default` class.
 ```html
   <html>
     <body class="default">
@@ -416,7 +430,7 @@ html and body elements will take the full height of the screen when using flex-s
   </html>
 ```
 
-`img.responsive`, `video.responsive` makes an image or a video element responsive
+`img.responsive`, `video.responsive` makes an image or a video element responsive.
 
 `img.cover`, `video.cover` specifies that the elements content would be croped to fit their sizes.
 
@@ -439,15 +453,15 @@ The `.{$breakpoint}m0` or `m{t | r | b | l}-0`, `.p0` specifies that there is no
   <!-- one direction -->
   <h1 class="mt-0">margin top 0</h1>
   <!-- all directions -->
-  <p class="margin-0">hello world</p>
+  <p class="m0">hello world</p>
 ```
 
 The `.no-select`, `.no-drag` classes specifies that an element should not be selected like when you want to copy a text, or not to be draged.
 ```html
   <!-- no select -->
-  <p class="no-select">you can't select and copy this text</p>
+  <p class="no-select">you can't select and copy text from me</p>
   <!-- no drag -->
-  <img src="undraggable.png" class="no-drag">
+  <img src="image.png" class="no-drag">
 ```
 The `.circle` class makes an element to appear like a circle.
 
@@ -487,43 +501,14 @@ Use the `.clip-overflow` to hide the overflowed content of any element.
 ### Sass
 if you are using sass, flex-system offers two files that can help you in writing faster css.
 
-#### _placeholder-variables.scss file
-
-This file contains some sass variables and placeholders.
-```scss
-  //grid system variables
-  .custom {
-    width: $half/3;
-    .example {
-      left: $slice-1 * 2;
-    }
-  }
-  //typography variables
-  /*
-    increase or decrease the css --amount variable to change the size of a typography variable
-    and headings
-  */
-  :root {
-    --amount: 0.5rem;//0.79rem is the default value
-  }
-  h1 {
-    font-size: $h1;//or $h2 to $h6
-  }
-  //placeholders
-  .custom-flex {
-    @extend %flex;//or @extend %inline-flex;
-    @extend %flex-column;
-  }
-```
-Take a look at the [_placeholder-variables.scss](./scss/_placeholder-variables.scss) file.
-
 #### _breakpoints.scss file
 
 This file contains some mixins and variables that can help in writing media queries.
 ```scss
   //the on() mixin
   /*
-    syntax: @include on($start, ?$to, ?$end) {
+    syntax:
+    @include on($start, ?$to, ?$end) {
       //content
     }
     $start (required) = [small, medium, large, larger, medium-to-large, large-to-larger, $value, max]
@@ -554,3 +539,34 @@ This file contains some mixins and variables that can help in writing media quer
   //or range($start, $end) {content}
 ```
 Take a look at the [_breakpoints.scss](./scss/_breakpoints.scss) file.
+
+#### _placeholder-variables.scss file
+
+This file contains some sass variables and placeholders.
+```scss
+  //grid system variables
+  .custom {
+    width: $half/3;
+    .example {
+      left: $slice-1 * 2;
+    }
+  }
+  //typography variables
+  /*
+    increase or decrease the css --amount variable to change the size of a typography variable
+    and headings
+  */
+  :root {
+    --amount: 0.5rem;//0.79rem is the default value
+  }
+  h1 {
+    font-size: $h1;//or $h2 to $h6
+  }
+  //placeholders
+  .custom-flex {
+    @extend %flex;//or @extend %inline-flex;
+    @extend %flex-column;
+  }
+```
+
+Take a look at the [_placeholder-variables.scss](./scss/_placeholder-variables.scss) file.
