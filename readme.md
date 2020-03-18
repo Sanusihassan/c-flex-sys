@@ -17,7 +17,7 @@ flex-system.css is a grid system framework based on [flex box](https://developer
 install with npm:
 
 ```bash
-npm i flex-system
+npm install flex-system
 ```
 
 include files using cdn.js:
@@ -47,8 +47,8 @@ include files using cdn.js:
 Use `.flex-sys.container` to reduce conflict if you are using another css framework that uses the same name.
 
 ```html
-  <section class="container">
-    <!-- content -->
+  <section class="container onmedium-full-screen">
+    <!-- onmedium only full screen -->
   </section>
 
   <!-- reducing conflict -->
@@ -354,7 +354,9 @@ If you want to display an element as block starting from a breakpoint use the `.
 ```
 ### Responsive Typography
 flex-system.css supports responsive typography.
-#### Headings
+
+### Headings
+
 by default headings font-size is scalable when using flex system.
 
 if you don't want this to happen, use the `.default` class.
@@ -378,7 +380,7 @@ if you don't want this to happen, use the `.default` class.
 }
 ```
 ![responsive typography](./assets/responsive_typography.gif)
-#### Responsive Paragraph
+### Responsive Paragraph
 `.responsive` class makes a paragraph font-size increase or decrease deppending on the screen width.
 
 ```html
@@ -470,7 +472,8 @@ The `.circle` class makes an element to appear like a circle.
   <!-- circle -->
   <img src="image.jpg" class="circle">
   <!-- .capsule or .sausage -->
-  <button class="capsule">sausage button</button>
+  <input type="text" class="capsule" placeholder="Capsule Input">
+  <button class="sausage">sausage button</button>
 ```
 ![capsule shape](./assets/sausage.png)
 
@@ -540,6 +543,8 @@ This file contains some mixins and variables that can help in writing media quer
 ```
 Take a look at the [_breakpoints.scss](./scss/_breakpoints.scss) file.
 
+Or [download it](https://cdn.jsdelivr.net/gh/Sanusihassan/flex-system/scss/_breakpoints.scss).
+
 #### _placeholder-variables.scss file
 
 This file contains some sass variables and placeholders.
@@ -553,13 +558,13 @@ This file contains some sass variables and placeholders.
   }
   //typography variables
   /*
-    increase or decrease the css --amount variable to change the size of a typography variable
-    and headings
+    increase or decrease the css --amount variable to change the amount of a typography variable
+    and headings font-size
   */
   :root {
     --amount: 0.5rem;//0.79rem is the default value
   }
-  h1 {
+  .h1-like-example {
     font-size: $h1;//or $h2 to $h6
   }
   //placeholders
@@ -570,3 +575,5 @@ This file contains some sass variables and placeholders.
 ```
 
 Take a look at the [_placeholder-variables.scss](./scss/_placeholder-variables.scss) file.
+
+Or [download it](https://cdn.jsdelivr.net/gh/Sanusihassan/flex-system/scss/_placeholder-variables.scss).

@@ -1,5 +1,5 @@
 /*!
-*   flex-system.css v1.0.8
+*   flex-system.css v1.0.9
 *   (c) 2019 - 2020 by Sanusi Hassan
 *   licance: MIT
 */
@@ -270,9 +270,6 @@
   }
 }
 /*
-    flex-system grid classes specifies element width/height inside a flex parent
-*/
-/*
     .available class takes the available space
 */
 .available, .available-each > * {
@@ -302,6 +299,9 @@
             flex: 1 1 0%;
   }
 }
+/*
+    flex-system grid classes specifies element width/height inside a flex parent
+*/
 .slice-1 {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 8.3333333333%;
