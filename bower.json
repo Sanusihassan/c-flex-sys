@@ -1,0 +1,25 @@
+{
+  "name": "flex-system",
+  "description": "A grid system framework based on flex box",
+  "main": "css/flex-system.css",
+  "authors": [
+    "Sanusi Hassan"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "flex-system",
+    "css3-flexbox",
+    "front-end-framework",
+    "grid-system",
+    "responsive-design"
+  ],
+  "homepage": "https://github.com/Sanusihassan/flex-system",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "assets"
+  ]
+}

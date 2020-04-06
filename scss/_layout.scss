@@ -10,16 +10,17 @@
         @extend %border-box;
     }
 }
-.container {
+.container, .flex-sys.container {
     display: block;
     margin: 0 auto;
     max-width: 100%;
     @include border-box();
-    & & {
+    //liquid container
+    &:not(.fixed-width) &:not(.fixed-width) {
         width: 100% !important;
     }
     @include on(small) {
-        &:not(.onsmall-full-screen) {
+        &:not(.onsmall-full-width) {
             padding: 0 2.5%;
         }
         .container, .column & {
@@ -27,13 +28,53 @@
         }
     }
     @include on(medium-to-large) {
-        width: 85%;
-        &.onmedium-full-screen {
-            width: 100%;
+        &:not(.onmedium-full-screen) {
+            width: 85%;
         }
-    }    
+    }
     @include on(large) {
-        width: 80%;
+        &:not(.onlarge-full-screen) {
+            width: 80%;
+        }
+    }
+    @include on(larger) {
+        &:not(.onlarger-full-screen) {
+            width: 80%;
+        }
+        &.onlarger-full-screen {
+            width: 100% !important;
+        }
+    }
+    //fixed-width container
+    &.fixed-width {
+        &:not(.liquid-onmedium):not(.onmedium-full-screen) {
+            @include on(medium-to-large) {
+                width: (85/100) * $medium;
+            }
+            @include on(768px, to, $large) {
+                width: (80/100) * 768px;
+            }
+        }
+        @each $range, $value in (large: $large, larger: $larger, 1440px: 1440px, 1600px: 1600px)
+        {
+            @if($range == large) {
+                @include on(large-to-larger) {
+                    &:not(.liquid-onlarge):not(.onlarge-full-screen) {
+                        width: (80/100) * $value;
+                    }
+                }
+            }
+            @else {
+                @include on($range) {
+                    &:not(.liquid-onlarger):not(.onlarger-full-screen) {
+                        width: (80/100) * $value;
+                    }
+                }
+            }
+        }
+    }
+    //.sp-right-0, .sp-left-0
+    @include on(large) {
         &.sp-right-0 {
             margin-right: 0;
         }
@@ -41,20 +82,6 @@
             margin-left: 0;
         }
     }
-    @include on(large-to-larger) {
-        &.onlarge-full-screen {
-            width: 100%;
-        }
-    }
-    @include on(larger) {
-        &.onlarger-full-screen {
-            width: 100%;
-        }
-    }
-}
-//reducing conflict in other frameworks
-.flex-sys.container {
-    @extend .container;
 }
 /*
     .remaining the remaining space after .container class
@@ -63,9 +90,29 @@
 @if($include-remaining) {
     .remaining {
         @include border-box();
+        max-width: 100%;
         width: fit-content;
         @include on(large) {
             width: 100% - 80;
+        }
+        &.fixed-width {
+            @each $range, $value in (large: $large, larger: $larger, 1440px: 1440px, 1600px: 1600px)
+            {
+                @if($range == large) {
+                    @include on(large-to-larger) {
+                        &:not(.liquid-onlarge) {
+                            width: calc(100% - #{(80/100) * $value});
+                        }
+                    }
+                }
+                @else {
+                    @include on($range) {
+                        &:not(.liquid-onlarger) {
+                            width: calc(100% - #{(80/100) * $value});
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -80,7 +127,7 @@
     &.inline-flex:not(.none) {
         display: inline-flex !important;
     }
-    &:not(.default) {
+    &:not(.default-column):not(.stretch):not([class*=cross-]) {
         align-items: flex-start;
     }
     &, & > * {
@@ -93,7 +140,7 @@
 /*.*row* classes will wrap by default*/
 [class*=row] {
     flex-wrap: wrap;
-    & > *:not(.container):not(.flex-sys.container) {
+    & > *:not(.container):not(.flex-sys.container):not(.full-width) {
         width: auto;
     }
 }
@@ -128,23 +175,54 @@
     flex-flow: column-reverse;
 }
 /*specifiying that the height of a .column* items should be set using the flex property*/
-[class*=column] {
-    & > * {
+[class*=column]:not(.default-column) {
+    & > *:not([class*=full-height]) {
         height: auto;
     }
-}
-[class*=column]:not(.default) > *:not([class*=container]):not([class*=column]) {
-    @extend %full-width;
 }
 /*cross-axis container*/
 .flex-column {
     flex-flow: column;
 }
-/*main-axis container within a breakpoint range*/
-@include each-range(row, true) {
-    flex-flow: row;
+/*main-axis container starting from a brekpoint*/
+@include on(small) {
+    .row-onsmall {
+        flex-flow: row;
+    }
 }
-/*cross-axis container within a breakpoint range*/
-@include each-range(column, true) {
-    flex-flow: column;
+@include on(medium) {
+    .row-onmedium {
+        flex-flow: row;
+    }
+}
+@include on(large) {
+    .row-onlarge {
+        flex-flow: row;
+    }
+}
+@include on(larger) {
+    .row-onlarger {
+        flex-flow: row;
+    }
+}
+/*cross-axis container within starting from a breakpoint*/
+@include on(small) {
+    .column-onsmall {
+        flex-flow: column;
+    }
+}
+@include on(medium) {
+    .column-onmedium {
+        flex-flow: column;
+    }
+}
+@include on(large) {
+    .column-onlarge {
+        flex-flow: column;
+    }
+}
+@include on(larger) {
+    .column-onlarger {
+        flex-flow: column;
+    }
 }

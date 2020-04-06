@@ -19,8 +19,11 @@ install with npm:
 ```bash
 npm install flex-system
 ```
-
-include files using cdn.js:
+install with bower:
+```bash
+bower install flex-system
+```
+include files using cdn.jsdelivr:
 
 ```html
   <!-- with spacing classes -->
@@ -30,38 +33,86 @@ include files using cdn.js:
   ```
 
 ## Usage
-* `.container` class creates a container or a wrapper around elements.
+
+* `.container` class creates a container/wrapper around elements that can be used to center page content, or align it right or left.
+
 ![.container class](./assets/container.jpg)
 
-* `.container.on{$breakpoint}full-screen` takes the entire width of the screen within the specified range.
-
-`$breakpoint` = \[`small-`, `medium-`, `large-`, `larger-`\]
-* `.container.sp-right-0` specifies that there is no white space on the right side of the element with `.container` class.
-
-* `.container.sp-left-0` does the same thing but in the left direction.
-
-* the `.container.sp-{left/right}-0` works only from large screens and up.
-
-![.container.sp-right-0](./assets/container-sp.png)
-
-Use `.flex-sys.container` to reduce conflict if you are using another css framework that uses the same name.
+The `.container` is created using percentage width, to create a fixed width container use `.fixed-width` class width `.container`.
 
 ```html
-  <section class="container onmedium-full-screen">
-    <!-- onmedium only full screen -->
-  </section>
+<!-- liquid container -->
+<div class="container">
+  liquid container
+</div>
+<!-- fixed-width container -->
+<div class="container fixed-width">
+  fixed width container
+</div>
+```
+See this [live demo](https://codepen.io/sanusi_hassan/full/MWwMWzO).
 
+[fixed-width container live demo example](https://codepen.io/sanusi_hassan/full/MWwMYLx).
+
+You can also combine between the two (**liquid and fixed-width**) containers.
+
+```html
+<div class="container fixed-width liquid-onmedium">
+  this is a fixed width container that should be liquid onmedium devices only
+</div>
+```
+
+Posibilities:
+
+* `.liquid-onmedium`
+* `.liquid-onlarge`
+* `.liquid-onlarger`
+
+Try to mix between the two designs in this [live example](https://codepen.io/sanusi_hassan/full/MWwMYLx).
+
+* `.{$breakpoint}full-screen` class makes the `.container` to take the entire width of the screen within the specified range.
+
+`$breakpoint` = \[`onsmall-`, `onmedium-`, `onlarge-`, `onlarger-`\]
+
+```html
+<div class="container onmedium-full-screen">
+  i will be in full screen mode onmeidum screens only
+</div>
+```
+* `.sp-right-0` class of the `.container` class specifies that there is no white space on the right side of the element.
+
+* `.sp-left-0` does the same thing but in the left direction.
+
+* the `.sp-{left/right}-0` classes works only from large screens and up.
+```html
+  <div class="container sp-right-0">
+    <code>.container.sp-right-0</code>
+  </div>
+  <div class="container sp-left-0">
+    <code>.container.sp-left-0</code>
+  </div>
+```
+![.container.sp-right-0](./assets/container-sp.png)
+
+Take a look at this [live example](https://codepen.io/sanusi_hassan/full/oNXrjZP).
+
+Use `.flex-sys` class with `.container` to reduce conflict if you are using another css framework that uses the same name.
+
+```html
   <!-- reducing conflict -->
   <section class="flex-sys container">
     <!-- flex-system container -->
   </section>
 ```
 
-* The remaining space `100% of the screen width - .container width` is stored in the `.remaining` class.
+* The `.sp-{left/right}-0` classes are often used with the `.container` class in other to use the remaining space.
+
+Which is `100% of the screen width - .container width` and it can be used with the `.remaining` class.
 
 ![.remaining class](./assets/remaining.png)
 
 ```html
+<!-- the remaining space can be used to create a sidenav -->
 <aside class="remaining">
   <nav>
     <!-- navigation -->
@@ -72,6 +123,9 @@ Use `.flex-sys.container` to reduce conflict if you are using another css framew
   <!-- main content -->
 </section>
 ```
+[live demo](https://codepen.io/sanusi_hassan/full/mdJZVOP) on codepen.
+
+If your `.container` is a fixed width container, you should make your `.remaining` width to be fixed by using `.fixed-width` in other to make it work properly.
 
 #### Flex Row Containers
 
@@ -95,6 +149,7 @@ The `.inline-flex` class makes an element to be displayed as `inline-flex` conta
     <!-- flex in the inline direction and items are in a row but reversed from the normal flow of the document -->
   </div>
 ```
+[live example](https://codepen.io/sanusi_hassan/full/NWqZjae).
 
 By default when using flex-system, flex items are defined to shrink if there is no space available, if you want to specify that flex items should not shrink use the `.noshrink-each` class with a _**flex row**_ containers or _**flex column**_ containers or `.noshrink` with a flex item.
 
@@ -114,7 +169,7 @@ By default when using flex-system, flex items are defined to shrink if there is 
 ## Wrapping Behavior
 `Flex Row Containers`  will wrap by default.
 
-The `.nowrap` overwrites this behavior.
+The `.nowrap` class overwrites this behavior.
 
 `.wrap-reversed` specifies that flex items will wrap in a reversed order.
 
@@ -125,11 +180,14 @@ The `.from-{$breakpoint}-wrap` classes specifies that flex items will wrap start
   <div class="flex-row onsmall-wrap nowrap">
     <!-- wrap onsmall only -->
   </div>
+  <div class="flex-row from-medium-wrap">
+    <!-- wrap from medium screens and up -->
+  </div>
 ```
 ## Grid System Classes
 Grid system classes specifies element dimentions inside a flex parent.
 
-flex-system uses 12 columns grid system.
+flex-system is using 12 columns grid system.
 
 ![grid system classes](./assets/row_grid.png)
 
@@ -169,6 +227,8 @@ The `"slice"` `prefix` is only used with \[`1`, `2`, `5`, `7` to `11`\] `suffixe
     <div class="fill">.fill (100%)</div>
   </div>
 ```
+[live example](https://codepen.io/sanusi_hassan/full/abOgwBV).
+
 ## Spacing Classes
 Spacing classes are "grid system classes" - a number `$n`, which is \[`1 - 6`\], and they work within the specified range.
 
@@ -182,9 +242,10 @@ Spacing classes are "grid system classes" - a number `$n`, which is \[`1 - 6`\],
     <!-- onsmall only half - 1 (49%), onmedium only fill - 5 (95%) onlarge and up 8 slices -->
   </div>
 ```
+[live example](https://codepen.io/sanusi_hassan/full/MWwMORE).
 
 ### Taking The Available Space
-`.{$breakpoint}available` class specifies that an element should takes the available space.
+`.{$breakpoint}available` class specifies that an element should grow to takes the available space.
 
 `.{$breakpoint}available-each` classes specifies that each direct element of a flex container should take the available amount of space.
 
@@ -203,6 +264,29 @@ Spacing classes are "grid system classes" - a number `$n`, which is \[`1 - 6`\],
   </div>
 ```
 ![.available class](./assets/available.png)
+
+[live examples](https://codepen.io/sanusi_hassan/full/BaNgejY)
+
+#### Some Useful Shortcuts
+`.flex-initial` resets the item to the initial values of Flexbox, this is the same as using `flex: 0 1 auto`, in this case the flex item will not grow larger than it's initial size, and the item will shrink if it needs to rather than overflowing.
+
+`.flex-auto` this is the same as `.flex-initial` but in this case the item can grow and fill the container as well as shrink if required, and this is the same as using `flex: 1 1 auto`
+
+`.flex-none` this will create a fully inflexable flex item. It is as if you wrote `flex: 0 0 auto`. The items cannot grow or shrink but will be laid out using flexbox with a flex-basis of auto.
+
+`.available-2x` specifies that an element should grow twice it's siblings amount of growing.
+
+These classes are also available for all breakpoints:
+`$breakpoints` = \[ , `onmedium-`, `onlarge-`, `onlarger-`\].
+
+#### Example
+```html
+<div class="flex-row">
+  <div class="available onlarger-flex-initial">
+    i'll stretch to take the available space untill larger screens
+  </div>
+</div>
+```
 ### Element Order
 `.{$breakpoint}order-$n` classes specifies element order inside the flex parent `$n` = \[`1 - 6`\].
 
@@ -340,6 +424,9 @@ If you want to display an element as block use the `.display-{$breakpoint}.as-bl
 To display an element starting from a breakpoint use the `.display-from-{$breakpoint}` classes.
 
 If you want to display an element as block starting from a breakpoint use the `.display-from-$breakpoint.as-block` classes.
+
+If you want to display an element as it was displayed before (it's default value) use `.display-from-{$breakpoint}.initial` or `.display-{$breakpoint}.initial`.
+
 #### Example
 ```html
   <div class="none display-onmedium">                                       
@@ -349,8 +436,14 @@ If you want to display an element as block starting from a breakpoint use the `.
     i'll be visible from large screens and up as block level element
   </div>
   <div class="none display-onlarger">
-    i'll be visible from larger screens and up                                                                                        
+    i'll be visible from larger screens and up
   </div>
+  <span class="none display-onlarge initial">
+    <!--
+      this span element will be displayed onlarge screens only as it's default display value
+      which is inline
+    -->
+  </span>
 ```
 ### Responsive Typography
 flex-system.css supports responsive typography.
@@ -386,6 +479,15 @@ if you don't want this to happen, use the `.default` class.
 ```html
 <p class="responsive">this is a responsive paragraph (resize the window).</p>
 ```
+```css
+/*
+  you can increase or decrease the amount of scaling by modifing the css --p-amount variable
+*/
+.example {
+  --p-amount: .25em;/* default value is 1.15em */
+}
+```
+[live demo](https://codepen.io/sanusi_hassan/full/MWwNayK).
 
 ### Utility Classes
 flex-system comes with some classes that can help you in a lot of situations.
@@ -432,6 +534,8 @@ html and body elements are taking the full height of the screen when using flex-
   </html>
 ```
 
+Use `.full-height-each`, `.full-width-each` or `.full-width-height-each` to specify that each direct element of the selected element should take full(width/height) or both.
+
 `img.responsive`, `video.responsive` makes an image or a video element responsive.
 
 `img.cover`, `video.cover` specifies that the elements content would be croped to fit their sizes.
@@ -440,13 +544,15 @@ The element content will be resized to maintain its aspect ratio while filling t
 
 The `img.middle-vertically`, `video.middle-vertically` makes an image or a video to be centered vertically
 #### Reseting
-flex system is adding some styles for some elements and they will be ignored if `.default` class is used.
+flex system is adding some styles for some elements and they will be ignored if `.default` or `.default-*` classes are used.
 
-A <a href="#">link</a> `(anchor tag)` is styled by removing the <u><a href="#">underline</a></u> and the default color making it's color to be the color of it's containing element.
+A <a href="#">link</a> `(anchor tag)` is styled by removing the <u><a href="#">underline</a></u> and the default color making it's color to be the color of it's containing element. Use `.default-link` class to apply your styles or to use default browser stylings.
 
-A list element (`ul`, `ol`), is styled by removing the default bullets or numbering, margin and padding.
+A list element (`ul`, `ol`), is styled by removing the default bullets or numbering, margin and padding. Use `.default-list` class to  apply your styles.
 
 Input elements are styled by removing the default outline and the user resizing ability.
+
+To ignore these styles use `.default-input` class.
 
 The `.{$breakpoint}m0` or `m{t | r | b | l}-0`, `.p0` specifies that there is no margin or padding for the specified direction/directions.
 
@@ -455,7 +561,7 @@ The `.{$breakpoint}m0` or `m{t | r | b | l}-0`, `.p0` specifies that there is no
   <!-- one direction -->
   <h1 class="mt-0">margin top 0</h1>
   <!-- all directions -->
-  <p class="m0">hello world</p>
+  <p class="onmedium-m0">hello world</p>
 ```
 
 The `.no-select`, `.no-drag` classes specifies that an element should not be selected like when you want to copy a text, or not to be draged.

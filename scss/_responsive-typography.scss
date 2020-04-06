@@ -19,6 +19,6 @@ $headings: (1: 6, 2: 5, 3: 4, 4: 3, 5: 2, 6: 1);
     @include responsive-typography();
     /*responsive paragraph*/
     p.responsive {
-        font-size: calc(1.15em + .15vw);
+        font-size: calc(var(--p-amount) + .15vw);
     }
 }

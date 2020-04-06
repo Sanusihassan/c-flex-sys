@@ -1,4 +1,4 @@
-/*utility classes*/
+// utility classes
 
 /*
     text-alignment
@@ -73,13 +73,13 @@
     }
 }
 @if($include-utility-classes) {
-    .full-width {
+    .full-width, .full-width-each > * {
         @extend %full-width;
     }
-    .full-height {
+    .full-height, .full-height-each > * {
         @extend %full-height;
     }
-    .full-width-height {
+    .full-width-height, .full-width-height-each > * {
         @extend %full-width-height;
     }
     * {
@@ -120,11 +120,11 @@
             vertical-align: middle;
         }
     }
-    a:not(.default) {
+    a:not(.default-link) {
         text-decoration: none;
-        color: inherit;
+        color: currentColor;
     }
-    ul:not(.default), ol:not(.default) {
+    ul:not(.default-list), ol:not(.default-list) {
         list-style-type: none;
         &:not([class*=push]):not([class*=center-x]):not([class*=center-y]) {
             @extend .m0;
@@ -132,11 +132,11 @@
         @extend .p0;
     }
     [type], textarea, button {
-        &:not(.default) {
+        &:not(.default-input) {
             outline: none;
         }
     }
-    textarea:not(.default) {
+    textarea:not(.default-input) {
         resize: none;
     }
     @include reset-margin();
@@ -186,7 +186,7 @@
     .abs {
         position: absolute;
     }
-    .fixd {
+    .fixed {
         position: fixed;
     }
     .sticky {

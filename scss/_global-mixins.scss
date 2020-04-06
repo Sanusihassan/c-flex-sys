@@ -139,3 +139,23 @@
         }
     }
 }
+@mixin available {
+    .available, .available-each > * {
+        flex: 1 1 0%;
+    }
+    @include on(medium-to-large) {
+        .onmedium-available, .onmedium-available-each > * {
+            flex: 1 1 0% !important;
+        }
+    }
+    @include on(large-to-larger) {
+        .onlarge-available, .onlarge-available-each > * {
+            flex: 1 1 0% !important;
+        }
+    }
+    @include on(larger) {
+        .onlarger-available, .onlarger-available-each > * {
+            flex: 1 1 0% !important;
+        }
+    }
+}

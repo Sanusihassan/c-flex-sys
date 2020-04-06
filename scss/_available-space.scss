@@ -4,6 +4,61 @@
     */
     @include flex-system();
 }
+/*predefined shorthands*/
+.flex-initial {
+    flex: initial;/*flex: 0 1 auto*/
+}
+.flex-auto {
+    flex: auto;/*flex: 1 1 auto*/
+}
+.flex-none {
+    flex: none;/*flex: 0 0 auto*/
+}
+.available-2x {
+    flex: 2;/*flex: 2 1 0*/
+}
+@include on(medium) {
+    .onmedium-flex-initial {
+        flex: initial;/*flex: 0 1 auto*/
+    }
+    .onmedium-flex-auto {
+        flex: auto;/*flex: 1 1 auto*/
+    }
+    .onmedium-flex-none {
+        flex: none;/*flex: 0 0 auto*/
+    }
+    .onmedium-available-2x {
+        flex: 2;/*flex: 2 1 0*/
+    }
+}
+@include on(large) {
+    .onlarge-flex-initial {
+        flex: initial;/*flex: 0 1 auto*/
+    }
+    .onlarge-flex-auto {
+        flex: auto;/*flex: 1 1 auto*/
+    }
+    .onlarge-flex-none {
+        flex: none;/*flex: 0 0 auto*/
+    }
+    .onlarge-available-2x {
+        flex: 2;/*flex: 2 1 0*/
+    }
+}
+@include on(larger) {
+    .onlarger-flex-initial {
+        flex: initial;/*flex: 0 1 auto*/
+    }
+    .onlarger-flex-auto {
+        flex: auto;/*flex: 1 1 auto*/
+    }
+    .onlarger-flex-none {
+        flex: none;/*flex: 0 0 auto*/
+    }
+    .onlarger-available-2x {
+        flex: 2;/*flex: 2 1 0*/
+    }
+}
 /*
     .order-n classes specifies element order inside the flex parent n = [1-6]
 */

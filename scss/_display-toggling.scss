@@ -10,6 +10,9 @@
     &.as-block {
         display: block;
     }
+    &.initial {
+        display: initial;
+    }
 }
 //display starting at a breakpoint
 @include on(medium) {
@@ -17,6 +20,9 @@
         display: flex;
         &.as-block {
             display: block;
+        }
+        &.initial {
+            display: initial;
         }
     }
 }
@@ -26,6 +32,9 @@
         &.as-block {
             display: block;
         }
+        &.initial {
+            display: initial;
+        }
     }
 }
 @include on(larger) {
@@ -33,6 +42,9 @@
         display: flex;
         &.as-block {
             display: block;
+        }
+        &.initial {
+            display: initial;
         }
     }
 }

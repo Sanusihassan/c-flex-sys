@@ -1,11 +1,12 @@
 /*!
-*   flex-system.css v1.0.9
+*   flex-system.css v2.0.0
 *   (c) 2019 - 2020 by Sanusi Hassan
 *   licance: MIT
 */
 @import "./global-variables";
 :root {
     --amount: 0.79rem;
+    --p-amount: 1.15em;
 }
 @import "./placeholder-variables";
 @import "./global-mixins";
@@ -14,9 +15,7 @@
 /*
     .available class takes the available space
 */
-@include each-breakpoint(available, on, "available-each > *") {
-    flex: 1 1 0%;
-}
+@include available;
 //grid system classes has priority over .available classes
 /*
     flex-system grid classes specifies element width/height inside a flex parent
