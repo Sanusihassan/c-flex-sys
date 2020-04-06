@@ -19,12 +19,7 @@ install with npm:
 ```bash
 npm install flex-system
 ```
-install with bower:
-```bash
-bower install flex-system
-```
 include files using cdn.jsdelivr:
-
 ```html
   <!-- with spacing classes -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Sanusihassan/flex-system/css/flex-system.min.css">
