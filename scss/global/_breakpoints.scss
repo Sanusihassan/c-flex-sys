@@ -1,6 +1,3 @@
-///   flex-system.css v2.0.0
-///   (c) 2019 - 2020 by Sanusi Hassan
-///   licance: MIT
 @function get-breakpoint($name) {
     @if($name == small) {
         @return $small;
