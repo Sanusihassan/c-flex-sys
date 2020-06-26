@@ -1,0 +1,4 @@
+@import "../global/breakpoints";
+@include each-range(wrap, false) {
+    flex-wrap: wrap;
+}

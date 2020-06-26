@@ -1,0 +1,33 @@
+@function rename($name, $num, $breakpoint: "", $pref: slice-) {
+    @if($num == 3) {
+        $name: if($breakpoint == "", fourth, on#{$breakpoint}-fourth);
+    }
+    @else if($num == 4) {
+        $name: if($breakpoint == "", third, on#{$breakpoint}-third);
+    }
+    @else if($num == 6) {
+        $name: if($breakpoint == "", half, on#{$breakpoint}-half);
+    }
+    @else if($num == 12) {
+        $name: if($breakpoint == "", fill, on#{$breakpoint}-fill);
+    }
+    @else {
+        $name: if($breakpoint == "", #{$pref}#{$num}, on#{$breakpoint}-#{$num});
+    }
+    @return $name;
+}
+@function rename-breakpoint($breakpoint: "") {
+    @return if($breakpoint != "", on#{$breakpoint}#{"-"}, $breakpoint);
+}
+//return true if $str contains $search-str
+@function i($str, $search-str) {
+    @return str-index($str, $search-str);
+}
+@function contains-reserved-word($name) {
+    @return i($name, "third") or i($name, "fourth") or i($name, "half") or i($name, "fill");
+}
+@function create-sp-var($n, $breakpoint) {
+    $var-name: rename("", $n, "", "");
+    $var-name: if(contains-reserved-word($var-name), #{"-"}$var-name, $var-name);
+    @return --#{$breakpoint}sp#{$var-name};
+}

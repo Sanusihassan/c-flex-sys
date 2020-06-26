@@ -1,0 +1,12 @@
+img, video {
+    &.responsive {
+        @extend canvas.responsive;
+        height: auto;
+    }
+    &.cover {
+        object-fit: cover;
+    }
+}
+canvas.responsive {
+    max-width: 100%;
+}

@@ -1,0 +1,106 @@
+@import "../../global/breakpoints";
+// shortcuts data-display-* selectors
+$display-onsmall: data-display-onsmall;
+$display-onmedium: data-display-onmedium;
+$display-onlarge: data-display-onlarge;
+
+// shortcuts for data-display-each-on* selectors
+$display-each-onsmall: data-display-each-onsmall;
+$display-each-onmedium: data-display-each-onmedium;
+$display-each-onlarge: data-display-each-onlarge;
+@include on(small) {
+    .display-onsmall,
+    [#{$display-onsmall}="flex"],
+    [#{$display-each-onsmall}="flex"] > *
+    {
+        display: flex;
+    }
+    .display-onsmall.inline-flex,
+    [#{$display-onsmall}="inline-flex"],
+    [#{$display-each-onsmall}="inline-flex"] > *
+    {
+        display: inline-flex;
+    }
+    .display-onsmall.block,
+    [#{$display-onsmall}="block"],
+    [#{$display-each-onsmall}="block"] > *
+    {
+        display: block;
+    }
+    .display-onsmall.inline-block,
+    [#{$display-onsmall}="inline-block"],
+    [#{$display-each-onsmall}="inline-block"] > *
+    {
+        display: inline-block;
+    }
+    .display-onsmall.initial,
+    [#{$display-onsmall}="initial"],
+    [#{$display-each-onsmall}="initial"] > *
+    {
+        display: initial;
+    }
+}
+@include on(medium-to-large) {
+    .display-onmedium,
+    [#{$display-onmedium}="flex"],
+    [#{$display-each-onmedium}="flex"] > *
+    {
+        display: flex;
+    }
+    .display-onmedium.inline-flex,
+    [#{$display-onmedium}="inline-flex"],
+    [#{$display-each-onmedium}="inline-flex"] > *
+    {
+        display: inline-flex;
+    }
+    .display-onmedium.block,
+    [#{$display-onmedium}="block"],
+    [#{$display-each-onmedium}="block"] > *
+    {
+        display: block;
+    }
+    .display-onmedium.inline-block,
+    [#{$display-onmedium}="inline-block"],
+    [#{$display-each-onmedium}="inline-block"] > *
+    {
+        display: inline-block;
+    }
+    .display-onmedium.initial,
+    [#{$display-onmedium}="initial"],
+    [#{$display-each-onmedium}="initial"] > *
+    {
+        display: initial;
+    }
+}
+@include on(large-to-larger) {
+    .display-onlarge,
+    [#{$display-onlarge}="flex"],
+    [#{$display-each-onlarge}="flex"] > *
+    {
+        display: flex;
+    }
+    .display-onlarge.inline-flex,
+    [#{$display-onlarge}="inline-flex"],
+    [#{$display-each-onlarge}="inline-flex"] > *
+    {
+        display: inline-flex;
+    }
+    .display-onlarge.block,
+    [#{$display-onlarge}="block"],
+    [#{$display-each-onlarge}="block"] > *
+    {
+        display: block;
+    }
+    .display-onlarge.inline-block,
+    [#{$display-onlarge}="inline-block"],
+    [#{$display-each-onlarge}="inline-block"] > *
+    {
+        display: inline-block;
+    }
+    .display-onlarge.initial,
+    [#{$display-onlarge}="initial"],
+    [#{$display-each-onlarge}="initial"] > *
+    {
+        display: initial;
+    }
+}

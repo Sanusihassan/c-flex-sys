@@ -1,0 +1,6 @@
+%border-box {
+    box-sizing: border-box;
+}
+@mixin border-box() {
+    @extend %border-box;
+}

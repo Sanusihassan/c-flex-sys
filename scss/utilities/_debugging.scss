@@ -1,0 +1,9 @@
+// debugging
+[data-debug="self"], [data-debug="each"] > * {
+    [data-debug="off"] &, &[data-debug="off"] {
+        #{$debugging-property}: none;
+    }
+    &, [data-debug="on"] & {
+        #{$debugging-property}: var(--debug);
+    }
+}

@@ -1,0 +1,34 @@
+@import "./row-line-spacing";
+@mixin main-spacing($exclude-exp: each)
+{
+    @if($exclude-exp == each) {
+        @include create-row-line-spacing();
+        @include on(medium) {
+            @include create-row-line-spacing(medium);
+        }
+        @include on(large) {
+            @include create-row-line-spacing(large);
+        }
+        @include on(larger) {
+            @include create-row-line-spacing(larger);
+        }
+    }
+    @else if($exclude-exp == global-only) {
+        @include create-row-line-spacing();
+    }
+    @else if($exclude-exp == medium-only) {
+        @include on(medium) {
+            @include create-row-line-spacing(medium);
+        }
+    }
+    @else if($exclude-exp == large-only) {
+        @include on(large) {
+            @include create-row-line-spacing(large);
+        }
+    }
+    @else if($exclude-exp == larger-only) {
+        @include on(larger) {
+            @include create-row-line-spacing(larger);
+        }
+    }
+}

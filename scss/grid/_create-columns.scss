@@ -1,0 +1,61 @@
+@import "../global/breakpoints";
+@import "../global/functions";
+$one-slice: 100%/12;
+@mixin create-columns($breakpoint: "", $breakpoint-name: "") {
+    $class-name: slice;
+    $var-name: "";
+    @for $i from 1 through 12 {
+        // classname
+        $class-name: rename($class-name, $i, $breakpoint);
+        // [data-*] selector
+        $attr-selector: if($breakpoint == "", slice, #{on}$breakpoint);
+        // css var name
+        $var-name: rename($var-name, $i, "");
+
+        @if(contains-reserved-word($class-name)) {
+            $alternate: if($breakpoint-name == "", slice-#{$i}, on#{$breakpoint}-#{$i});
+            .#{$class-name}, .#{$alternate}, [data-#{$attr-selector}="#{$var-name}"], [data-#{$attr-selector}="#{$i}"] {
+                --#{size}: var(--#{$var-name});
+                flex: var(--grow-factor) var(--shrink-factor) var(--size);
+            }
+        }
+        @else {
+            .#{$class-name}, [data-#{$attr-selector}="#{$i}"] {
+                --#{size}: var(--#{$var-name});
+                flex: var(--grow-factor) var(--shrink-factor) var(--size);
+            }
+        }
+    }
+}
+@mixin grid-system($exclude-exp: each) {
+    @if($exclude-exp == each) {
+        @include create-columns();
+        @include on(medium) {
+            @include create-columns(medium, m-);
+        }
+        @include on(large) { 
+            @include create-columns(large, l-);
+        }
+        @include on(larger) {
+            @include create-columns(larger, lg-);
+        }
+    }
+    @else if($exclude-exp == global-only) {
+        @include create-columns();
+    }
+    @else if($exclude-exp == medium-only) {
+        @include on(medium) {
+            @include create-columns(medium, m-);
+        }
+    }
+    @else if($exclude-exp == large-only) {
+        @include on(large) { 
+            @include create-columns(large, l-);
+        }
+    }
+    @else if($exclude-exp == larger-only) {
+        @include on(larger) {
+            @include create-columns(larger, lg-);
+        }
+    }
+}

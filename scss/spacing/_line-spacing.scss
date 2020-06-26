@@ -1,0 +1,35 @@
+@import "./row-line-spacing";
+//line spacing
+@mixin line-spacing($exclude-exp: each)
+{
+    @if($exclude-exp == each) {
+        @include create-row-line-spacing("", hello world);
+        @include on(medium) {
+            @include create-row-line-spacing(medium, this is flex-system-css)
+        }
+        @include on(large) {
+            @include create-row-line-spacing(large, flex-box is awsome)
+        }
+        @include on(larger) {
+            @include create-row-line-spacing(larger, what do you think)
+        }
+    }
+    @else if($exclude-exp == global-only) {
+        @include create-row-line-spacing("", hello world);
+    }
+    @else if($exclude-exp == medium-only) {
+        @include on(medium) {
+            @include create-row-line-spacing(medium, line-spacing)
+        }
+    }
+    @else if($exclude-exp == large-only) {
+        @include on(large) {
+            @include create-row-line-spacing(large, flex-box is awsome)
+        }
+    }
+    @else if($exclude-exp == larger-only) {
+        @include on(larger) {
+            @include create-row-line-spacing(larger, what do you think)
+        }
+    }
+}

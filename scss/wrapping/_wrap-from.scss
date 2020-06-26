@@ -1,0 +1,16 @@
+@import "../global/breakpoints";
+@include on(medium) {
+    .from-medium-wrap {
+        flex-wrap: wrap;
+    }
+}
+@include on(large) {
+    .from-large-wrap {
+        flex-wrap: wrap;
+    }
+}
+@include on(larger) {
+    .from-larger-wrap {
+        flex-wrap: wrap;
+    }   
+}

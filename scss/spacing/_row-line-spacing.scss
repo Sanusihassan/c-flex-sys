@@ -1,0 +1,37 @@
+//flex item alignment on the main axis classes and flex line alignment classes
+@import "../global/breakpoints";
+@import "../global/functions";
+@mixin create-row-line-spacing($breakpoint: "", $property-name: justify-content) {
+    $breakpoint: rename-breakpoint($breakpoint);
+    $property: if($property-name == justify-content, justify-content, align-content);
+    $direction: if($property-name == justify-content, main, line);
+    //alternative [data-*] selector
+    $alt: data-#{$breakpoint}#{$direction}-align;
+    @if($breakpoint != "" or $property-name != justify-content) {
+        .#{$breakpoint}#{$direction}-start, [#{$alt}="start"] {
+            #{$property}: flex-start;
+        }
+    }
+    @if($property == align-content) {
+        .#{$breakpoint}#{line-}stretch, [#{$alt}="stretch"] {
+            #{$property}: stretch;
+        }
+    }
+    .#{$breakpoint}#{$direction}-end, [#{$alt}="end"] {
+        #{$property}: flex-end;
+    }
+    .#{$breakpoint}#{$direction}-center, [#{$alt}="center"] {
+        #{$property}: center;
+    }
+    $sp: if($breakpoint == "", space, sp);
+    $direction: if($property-name == justify-content, $sp, line-sp);
+    .#{$breakpoint}#{$direction}-around, [#{$alt}="space-around"] {
+        #{$property}: space-around;
+    }
+    .#{$breakpoint}#{$direction}-between, [#{$alt}="space-between"] {
+        #{$property}: space-between;
+    }
+    .#{$breakpoint}#{$direction}-evenly, [#{$alt}="space-evenly"] {
+        #{$property}: space-evenly;
+    }
+}

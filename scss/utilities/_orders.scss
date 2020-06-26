@@ -1,0 +1,46 @@
+//ordering classes
+@import "../global/breakpoints";
+@import "../global/functions";
+@mixin create-orders($breakpoint: "") {
+    $breakpoint: rename-breakpoint($breakpoint);
+    @for $order from 1 through 6 {
+        $value: if($order == 6, var(--order), $order);
+        .#{$breakpoint}order-#{$order}, [data-#{$breakpoint}order="#{$order}"] {
+            order: $value;
+        }
+    }
+}
+@mixin orders($exclude-exp: each)
+{
+    @if($exclude-exp == each)
+    {
+        @include create-orders();
+        @include on(medium) {
+            @include create-orders(medium);
+        }
+        @include on(large) {
+            @include create-orders(large)
+        }
+        @include on(larger) {
+            @include create-orders(larger)
+        }
+    }
+    @else if($exclude-exp == global-only) {
+        @include create-orders();
+    }
+    @else if($exclude-exp == medium-only) {
+        @include on(medium) {
+            @include create-orders(medium);
+        }
+    }
+    @else if($exclude-exp == large-only) {
+        @include on(large) {
+            @include create-orders(large)
+        }
+    }
+    @else if($exclude-exp == larger-only) {
+        @include on(larger) {
+            @include create-orders(larger)
+        }        
+    }
+}

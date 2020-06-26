@@ -3,27 +3,72 @@
 *   (c) 2019 - 2020 by Sanusi Hassan
 *   licance: MIT
 */
-@import "./global-variables";
 :root {
-    --amount: 0.79rem;
+    // to customize almost everything in flex-system
+    // each mixin that has the value each as an argument
+    // example: @include grid-system(each);
+    //replace the value each with one of the following values:
+
+    // each => include for each breakpoint (default)
+    // global-only => include for global breakpoint only.
+    // medium-only => include for medium breakpoint only.
+    // large-only => include for large breakpoint only.
+    // larger-only => include for larger breakpoint only.
+    --amount: 0.5em;
     --p-amount: 1.15em;
+    --shrink-factor: 1;
+    --grow-factor: 0;
+    --portion: 1;
+    --order: 6;
+    --debug: 1.5px solid #2d3436;
+    @import "./grid/grid-variables";
+    @include grid-variables();
 }
-@import "./placeholder-variables";
-@import "./global-mixins";
-@import "./breakpoints";
-@import "./layout";
-/*
-    .available class takes the available space
-*/
-@include available;
-//grid system classes has priority over .available classes
-/*
-    flex-system grid classes specifies element width/height inside a flex parent
-*/
-@include flex-system();
-$include-spacing-classes: false;
-@import "./available-space";
-@import "./display-toggling";
-@import "./responsive-typography";
-//utility/helper classes
-@import "./utility";
+
+@import "./containers/container";
+@import "./containers/row_column_containers";
+
+@import "./containers/row-on";
+@import "./containers/column-on";
+
+@import "./wrapping/wrap";
+@import "./wrapping/wrap-on";
+@import "./wrapping/wrap-from";
+
+@import "./spacing/available";
+@include available(each);
+
+
+@import "./grid/create-columns";
+@include grid-system(each);
+
+
+@import "./spacing/cross-spacing";
+@import "./spacing/shorthands";
+@import "./spacing/auto-margins";
+@include auto-margins(each);
+
+@import "./spacing/main-spacing";
+@import "./spacing/line-spacing";
+@include main-spacing(each);
+@include line-spacing(each);
+
+@include cross-spacing(each);
+@include self-cross-spacing(each);
+@include shorthands(each);
+
+// utilities
+@import "./utilities/orders";
+@include orders(each);
+
+@import "./utilities/fill-parent";
+@import "./utilities/responsive-utils";
+@import "./utilities/responsive-typography";
+
+
+@import "./utilities/display/display-toggling";
+@import "./utilities/display/display-on";
+@import "./utilities/display/display-from";
+// //debugging
+$debugging-property: border;
+@import "./utilities/debugging";

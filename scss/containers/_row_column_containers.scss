@@ -1,0 +1,28 @@
+@import "../global/breakpoints";
+@import "./border-box";
+.flex-row, .flex-column, .row-reversed, .column-reversed, [class*=row-on], [class*=column-on] {
+    &:not(.none):not(.inline-flex):not([data-display="none"]) {
+        display: flex !important;
+    }
+    &:not([data-default]):not(.stretch):not([class*=cross-align]) {
+        align-items: flex-start;
+    }
+    &, & > * {
+        @include border-box();
+    }
+    &.noshrink-each > *, .noshrink {
+        flex-shrink: 0;
+    }
+}
+.inline-flex:not(.none) {
+    display: inline-flex !important;
+}
+.row-reversed {
+    flex-flow: row-reverse;
+}
+.column-reversed {
+    flex-flow: column-reverse;
+}
+.flex-column {
+    flex-flow: column;
+}

@@ -1,0 +1,49 @@
+@import "./global/breakpoints";
+@mixin available($exclude-exp: each) {
+    @if($exclude-exp == each) {
+        .available, .available-each > *, [data-slice="available"] {
+            flex: var(--portion) 1 0%;
+        }
+        @include on(medium) {
+            .onmedium-available, .onmedium-available-each > *, [data-onmedium="available"] {
+                flex: var(--portion) 1 0% !important;
+            }
+        }
+        @include on(large) {
+            .onlarge-available, .onlarge-available-each > *, [data-onlarge="available"] {
+                flex: var(--portion) 1 0% !important;
+            }
+        }
+        @include on(larger) {
+            .onlarger-available, .onlarger-available-each > *, [data-onlarger="available"] {
+                flex: var(--portion) 1 0% !important;
+            }
+        }
+    }
+    @else if($exclude-exp == global-only) {
+        .available, .available-each > * {
+            flex: var(--portion) 1 0%;
+        }
+    }
+    @else if($exclude-exp == medium-only) {
+        @include on(medium) {
+            .onmedium-available, .onmedium-available-each > * {
+                flex: var(--portion) 1 0% !important;
+            }
+        }
+    }
+    @else if($exclude-exp == large-only) {
+        @include on(large) {
+            .onlarge-available, .onlarge-available-each > * {
+                flex: var(--portion) 1 0% !important;
+            }
+        }
+    }
+    @else if($exclude-exp == larger-only) {
+        @include on(larger) {
+            .onlarger-available, .onlarger-available-each > * {
+                flex: var(--portion) 1 0% !important;
+            }
+        }
+    }
+}

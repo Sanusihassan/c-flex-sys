@@ -1,0 +1,60 @@
+//auto margins classes
+@import "../global/breakpoints";
+@import "../global/functions";
+@mixin create-auto-margins($breakpoint: "") {
+    $breakpoint: rename-breakpoint($breakpoint);
+    $directions: (top: bottom, right: left, bottom: top, left: right);
+    @each $dir, $oppos in $directions {
+        // $push: if($breakpoint == "", push-, "");
+        .#{$breakpoint}push-#{$oppos}, [data-#{$breakpoint}push="#{$oppos}"] {
+            margin-#{$dir}: auto;
+        }
+        .#{$breakpoint}push-center-x, [data-#{$breakpoint}push="center-x"] {
+            @if($dir == left or $dir == right) {
+                @extend .#{$breakpoint}push-#{$oppos};
+            }
+        }
+        .#{$breakpoint}push-center-y, [data-#{$breakpoint}push="center-y"] {
+            @if($dir == top or $dir == bottom) {
+                @extend .#{$breakpoint}push-#{$oppos};
+            }
+        }
+    }
+}
+@mixin auto-margins($exclude-exp: each)
+{
+    @if($exclude-exp == each) {
+        @include create-auto-margins();
+        @include on(medium) {
+            @include create-auto-margins(medium)
+        }
+        @include on(large) {
+            @include create-auto-margins(large)
+        }
+        @include on(larger) {
+            @include create-auto-margins(larger)
+        }
+    }
+    //include for global only
+    @else if($exclude-exp == global-only) {
+        @include create-auto-margins();
+    }
+    //include for medium only
+    @else if($exclude-exp == medium-only) {
+        @include on(medium) {
+            @include create-auto-margins(medium)
+        }
+    }
+    //include for large only
+    @else if($exclude-exp == large-only) {
+        @include on(large) {
+            @include create-auto-margins(large)
+        }
+    }
+    //include for larger only
+    @else if($exclude-exp == larger-only) {
+        @include on(larger) {
+            @include create-auto-margins(larger)
+        }
+    }
+}

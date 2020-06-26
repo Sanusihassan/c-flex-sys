@@ -1,0 +1,110 @@
+@import "../../global/breakpoints";
+// shortcuts data-display-from-* selectors
+$display-from-medium: data-display-from-medium;
+$display-from-large: data-display-from-large;
+$display-from-larger: data-display-from-larger;
+
+// shortcuts for data-display-each-from* selectors
+$display-each-fromedium: data-display-each-from-medium;
+$display-each-from-large: data-display-each-from-large;
+$display-each-from-larger: data-display-each-from-larger;
+
+// display starting at a breakpoint
+@include on(medium) {
+    .display-from-medium,
+    [#{$display-from-medium}="flex"],
+    [#{$display-each-fromedium}="flex"] > *
+    {
+        display: flex;
+    }
+    .display-from-medium.inline-flex,
+    [#{$display-from-medium}="inline-flex"]
+    [#{$display-each-fromedium}="inline-flex"] > *
+    {
+        display: inline-flex;
+    }
+    .display-from-medium.block,
+    [#{$display-from-medium}="block"]
+    [#{$display-each-fromedium}="block"] > *
+    {
+        display: block;
+    }
+    .display-from-medium.inline-block,
+    [#{$display-from-medium}="inline-block"]
+    [#{$display-each-fromedium}="inline-block"] > *
+    {
+        display: inline-block;
+    }
+    .display-from-medium.initial,
+    [#{$display-from-medium}="initial"]
+    [#{$display-each-fromedium}="initial"] > *
+    {
+        display: initial;
+    }
+}
+// display from large
+@include on(large) {
+    .display-from-large,
+    [#{$display-from-large}="flex"]
+    [#{$display-each-from-large}="flex"] > *
+    {
+        display: flex;
+    }
+    .display-from-large.inline-flex,
+    [#{$display-from-large}="inline-flex"]
+    [#{$display-each-from-large}="inline-flex"] > *
+    {
+        display: inline-flex;
+    }
+    .display-from-large.block,
+    [#{$display-from-large}="block"]
+    [#{$display-each-from-large}="block"] > *
+    {
+        display: block;
+    }
+    .display-from-large.inline-block,
+    [#{$display-from-large}="inline-block"]
+    [#{$display-each-from-large}="inline-block"] > *
+    {
+        display: inline-block;
+    }
+    .display-from-large.initial,
+    [#{$display-from-large}="initial"]
+    [#{$display-each-from-large}="initial"] > *
+    {
+        display: initial;
+    }
+}
+// display from larger
+@include on(larger) {
+    .display-from-larger,
+    [#{$display-from-larger}="flex"]
+    [#{$display-each-from-larger}="flex"] > *
+    {
+        display: flex;
+    }
+    .display-from-larger.inline-flex,
+    [#{$display-from-larger}="inline-flex"]
+    [#{$display-each-from-larger}="flex"] > *
+    {
+        display: inline-flex;
+    }
+    .display-from-larger.block,
+    [#{$display-from-larger}="block"]
+    [#{$display-each-from-larger}="block"] > *
+    {
+        display: block;
+    }
+    .display-from-larger.inline-block,
+    [#{$display-from-larger}="inline-block"]
+    [#{$display-each-from-larger}="inline-block"] > *
+    {
+        display: inline-block;
+    }
+    .display-from-larger.initial,
+    [#{$display-from-larger}="initial"]
+    [#{$display-each-from-larger}="initial"] > *
+    {
+        display: initial;
+    }
+}
