@@ -31,7 +31,7 @@ include using cdn.jsdelivr:
 
 ![container](./assets/container.png)
 
-The green are in this case represents the container.
+The green area in this case represents the container.
 
 ```html
   <!-- to create a container -->
@@ -50,7 +50,7 @@ The green are in this case represents the container.
 When you create a container you have the option to make it either a `fixed-width` container or
 `liquid-container` which is the default behavior.
 
-The `container` width is width is controled via the following variables:
+The `container` width is controled via the following variables:
 * `--container-small-width`: controls container width onsmall breakpoint - (Mobile).
 * `--container-medium-width`: controls container width onmedium breakpoint - (Tablet).
 * `--container-large-width`: controls container width onlarge breakpoint - (Laptops).
@@ -112,7 +112,7 @@ To customize the Fixed width container use any of the following css variables:
   // example
   .container {
     // this example uses sass but you can use any method to calculate this value
-    width: #{(80/100)} * 992px; // 80% * 992px = 793.6px
+    --container-medium-fixed-width: #{(80/100)} * 992px; // 80% * 992px = 793.6px
   }
 ```
 
@@ -456,8 +456,6 @@ This can simplify your code alot!
 
 ## Customizing The Grid
 
-<!-- Sometimes the normal flex-system grid is not enough. -->
-
 Lets say that we have two divs and each of them has a `.half` class.
 
 As you know `.half` is `50%`, but we want `49%` insted.
@@ -542,9 +540,7 @@ You can also use the `.available-each` class on a flex container to ensure that 
     <div>item 3</div>
   </div>
 ```
-
-You can use the `data-slice=available` attribute instade of the `.available` class.
-
+Instade of the `.available` class you can use `data-slice=available`, `data-onmedium="available"` and so on.
 ```html
   <div class="flex-row">
     <div class="half">50%</div>
@@ -936,4 +932,4 @@ You might also want to use the `.width-auto` class wich is going to be ignored b
   </div>
 ```
 
->  You can contact [me](https://twitter.com/__sanusi) at any time :)
+>  Ask [me](https://twitter.com/__sanusi) any questions at any time :)
