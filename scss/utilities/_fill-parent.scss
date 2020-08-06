@@ -1,29 +1,47 @@
+/*
+    .w100, .w100-each > *
+    [data-w=100], [data-w=100-each] > * {
+        width: 100%;
+    }
+*/
 %full-width {
     width: 100%;
 }
+/*
+    .h100, .h100-each > *
+    [data-h=100], [data-h=100-each] > * {
+        height: 100%;
+    }
+*/
 %full-height {
     height: 100%;
 }
-.full-width, .full-width-each > *, [data-full-width], [data-full-width-each] > * {
-    &:not(.width-auto):not([data-width=auto]) {
-        @extend %full-width;
+@mixin fill-parent($property: width, $unit: false, $placeholder: full-width) {
+    $short-cut: if($property == width, w, h);
+    .f#{$short-cut},
+    .f#{$short-cut}-each > *,
+    .#{$short-cut}100,
+    .#{$short-cut}100-each > *,
+    [data-#{$short-cut}="100"],
+    [data-#{$short-cut}="100-each"] > * {
+        @if($unit) {
+            #{$property}: 100#{$unit};
+        }
+        @else {
+            @extend %#{$placeholder};
+        }
     }
 }
-.full-height, .full-height-each > *, [data-full-height], [data-full-height-each] > * {
-    &:not(.height-auto):not([data-height=auto]) {
-        @extend %full-height;
-    }
-}
-.full-width-height, .full-width-height-each > *, [data-full-width-height], [data-full-width-height-each] > * {
-    &:not(.width-auto):not([data-width=auto]) {
-        @extend %full-width;
-    }
-    &:not(.height-auto):not([data-height=auto]) {
-        @extend %full-height;
-    }
-}
+@include fill-parent();
+@include fill-parent(height, false, full-height);
 html, body {
     &:not([data-default]) {
-        @extend .full-height;
+        @extend %full-height;
     }
+}
+.w-auto {
+    width: auto;
+}
+.h-auto {
+    height: auto;
 }

@@ -6,7 +6,7 @@
     $property: if($property-name == justify-content, justify-content, align-content);
     $direction: if($property-name == justify-content, main, line);
     //alternative [data-*] selector
-    $alt: data-#{$breakpoint}#{$direction}-align;
+    $alt: data-#{$breakpoint}#{$direction};
     @if($breakpoint != "" or $property-name != justify-content) {
         .#{$breakpoint}#{$direction}-start, [#{$alt}="start"] {
             #{$property}: flex-start;

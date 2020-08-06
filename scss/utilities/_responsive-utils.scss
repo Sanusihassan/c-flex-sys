@@ -1,7 +1,7 @@
 img, video {
     &.responsive {
         @extend canvas.responsive;
-        height: auto;
+        @extend .h-auto;
     }
     &.cover {
         object-fit: cover;

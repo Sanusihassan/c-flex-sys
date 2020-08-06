@@ -6,15 +6,15 @@
     $directions: (top: bottom, right: left, bottom: top, left: right);
     @each $dir, $oppos in $directions {
         // $push: if($breakpoint == "", push-, "");
-        .#{$breakpoint}push-#{$oppos}, [data-#{$breakpoint}push="#{$oppos}"] {
+        .#{$breakpoint}push-#{$oppos}, [data-#{$breakpoint}push-#{$oppos}] {
             margin-#{$dir}: auto;
         }
-        .#{$breakpoint}push-center-x, [data-#{$breakpoint}push="center-x"] {
+        .#{$breakpoint}push-center-x, [data-#{$breakpoint}push-center-x] {
             @if($dir == left or $dir == right) {
                 @extend .#{$breakpoint}push-#{$oppos};
             }
         }
-        .#{$breakpoint}push-center-y, [data-#{$breakpoint}push="center-y"] {
+        .#{$breakpoint}push-center-y, [data-#{$breakpoint}push-center-y] {
             @if($dir == top or $dir == bottom) {
                 @extend .#{$breakpoint}push-#{$oppos};
             }

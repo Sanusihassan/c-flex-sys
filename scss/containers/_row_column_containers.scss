@@ -2,7 +2,7 @@
 @import "./border-box";
 .flex-row, .flex-column, .row-reversed, .column-reversed, [class*=row-on], [class*=column-on] {
     &:not(.none):not(.inline-flex):not([data-display="none"]) {
-        display: flex !important;
+        display: flex;
     }
     &:not([data-default]):not(.stretch):not([class*=cross-align]) {
         align-items: flex-start;
@@ -15,7 +15,7 @@
     }
 }
 .inline-flex:not(.none) {
-    display: inline-flex !important;
+    display: inline-flex;
 }
 .row-reversed {
     flex-flow: row-reverse;

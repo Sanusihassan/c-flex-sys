@@ -1,5 +1,5 @@
 /*!
-*   flex-system.css v2.0.3
+*   flex-system.css v2.0.4
 *   (c) 2019 - 2020 by Sanusi Hassan
 *   licance: MIT
 */
@@ -20,7 +20,6 @@
     --grow-factor: 0;
     --portion: 1;
     --order: 6;
-    --debug: 1.5px solid #2d3436;
     @import "./grid/grid-variables";
     @include grid-variables();
 }
@@ -65,10 +64,6 @@
 @import "./utilities/responsive-utils";
 @import "./utilities/responsive-typography";
 
-
 @import "./utilities/display/display-toggling";
 @import "./utilities/display/display-on";
 @import "./utilities/display/display-from";
-// //debugging
-$debugging-property: border;
-@import "./utilities/debugging";

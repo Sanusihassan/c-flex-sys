@@ -11,18 +11,27 @@ $one-slice: 100%/12;
         $attr-selector: if($breakpoint == "", slice, #{on}$breakpoint);
         // css var name
         $var-name: rename($var-name, $i, "");
-
+        // size variable name
+        $size-name: if($breakpoint == "", --size, --size-on#{$breakpoint});
+        // bootstrap-like selector
+        $bs-prefix: bootstrap-selctor($breakpoint);
         @if(contains-reserved-word($class-name)) {
             $alternate: if($breakpoint-name == "", slice-#{$i}, on#{$breakpoint}-#{$i});
-            .#{$class-name}, .#{$alternate}, [data-#{$attr-selector}="#{$var-name}"], [data-#{$attr-selector}="#{$i}"] {
-                --#{size}: var(--#{$var-name});
-                flex: var(--grow-factor) var(--shrink-factor) var(--size);
+            .#{$class-name},
+            .#{$alternate},
+            [data-#{$attr-selector}="#{$var-name}"],
+            [data-#{$attr-selector}="#{$i}"],
+            .col-#{$bs-prefix}#{$i} {
+                #{$size-name}: var(--#{$var-name});
+                flex: var(--grow-factor) var(--shrink-factor) var(#{$size-name});
             }
         }
         @else {
-            .#{$class-name}, [data-#{$attr-selector}="#{$i}"] {
-                --#{size}: var(--#{$var-name});
-                flex: var(--grow-factor) var(--shrink-factor) var(--size);
+            .#{$class-name},
+            [data-#{$attr-selector}="#{$i}"],
+            .col-#{$bs-prefix}#{$i} {
+                #{#{$size-name}}: var(--#{$var-name});
+                flex: var(--grow-factor) var(--shrink-factor) var(#{$size-name});
             }
         }
     }
@@ -58,4 +67,14 @@ $one-slice: 100%/12;
             @include create-columns(larger, lg-);
         }
     }
+}
+@function bootstrap-selctor($breakpoint: "") {
+    $breakpoints: (global: "", medium: md, large: lg, larger: xl);
+    $ret-val: "";
+    @each $breakpoint-name, $value in $breakpoints {
+        @if($breakpoint-name == $breakpoint) {
+            $ret-val: $value;
+        }
+    }
+    @return $ret-val;
 }

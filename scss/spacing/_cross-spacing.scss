@@ -3,7 +3,7 @@
 @import "../global/functions";
 @mixin create-cross-spacing($breakpoint: "", $prop: items) {
     $breakpoint: rename-breakpoint($breakpoint);
-    $name: if($prop == items, cross-align, self-align);
+    $name: if($prop == items, cross, self);
     @if($breakpoint != "") {
         .#{$breakpoint}#{$name}-start, [data-#{$breakpoint}#{$name}="start"] {
             align-#{$prop}: flex-start;

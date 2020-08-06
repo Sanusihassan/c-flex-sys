@@ -84,3 +84,28 @@ $larger: 1200px;
         }
     }
 }
+
+// shortcuts
+@mixin onsmall() {
+    @include on(small) {
+        @content;
+    }
+}
+
+@mixin onmedium() {
+    @include on(medium) {
+        @content;
+    }
+}
+
+@mixin onlarge() {
+    @include on(large) {
+        @content;
+    }
+}
+
+@mixin onlarger() {
+    @include on(larger) {
+        @content;
+    }
+}

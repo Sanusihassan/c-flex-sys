@@ -1,14 +1,15 @@
 // predefined shorthands
 @import "../global/breakpoints";
-@mixin create-shorthands($prefix: "") {
-    $alternate-prefix: if($prefix == "", slice, $prefix);
-    .#{$prefix}-flex-initial, [data-#{$alternate-prefix}="initial"] {
+@mixin create-shorthands($breakpoint: "") {
+    $alternate-prefix: if($breakpoint == "", slice, $breakpoint);
+    $prefix: if($breakpoint == "", "", $breakpoint#{"-"});
+    .#{$prefix}flex-initial, [data-#{$alternate-prefix}="initial"] {
         flex: initial;// flex: 0 1 auto
     }
-    .#{$prefix}-flex-auto, [data-#{$alternate-prefix}="auto"]  {
+    .#{$prefix}flex-auto, [data-#{$alternate-prefix}="auto"]  {
         flex: auto;// flex: 1 1 auto
     }
-    .#{$prefix}-flex-none, [data-#{$alternate-prefix}="none"]  {
+    .#{$prefix}flex-none, [data-#{$alternate-prefix}="none"]  {
         flex: none;// flex: 0 0 auto
     }
 }
