@@ -950,8 +950,8 @@ You might also want to use the `.w-auto`, `.h-auto` class wich is going to be ig
 
 You may want to use these files.
 
-[_breakpoints.scss](./scss/global/_breakpoints.scss)
+[_breakpoints.scss](https://cdn.jsdelivr.net/gh/Sanusihassan/flex-system/scss/global/_breakpoints.scss)
 
-[_sass-grid-variables.scss]("./scss/utilities/_sass-grid-variables.scss")
+[_sass-grid-variables.scss](https://cdn.jsdelivr.net/gh/Sanusihassan/flex-system/scss/utilities/_sass-grid-variables.scss)
 
 >  Ask [me](https://twitter.com/__sanusi) any questions at any time :)
