@@ -8,8 +8,9 @@
 |/                        \|
 
 -->
-
-![flex-system logo](./assets/flex-sys.png)
+<p align="center">
+    <img src="./assets/flex-sys.png" alt="flex-system logo">
+</p>
 
 <h1 align="center">flex-system</h1>
 
