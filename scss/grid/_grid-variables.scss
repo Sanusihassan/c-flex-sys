@@ -1,9 +1,12 @@
 $one-slice: 100%/12;
 @import "../global/functions";
+
 @mixin grid-variables() {
     $name: slice;
+
     @for $i from 1 through 12 {
         $name: rename($name, $i, "");
         --#{$name}: #{$one-slice * $i};
+        --#{col-}#{$i}: #{$one-slice * $i};
     }
 }

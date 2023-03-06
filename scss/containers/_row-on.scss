@@ -1,9 +1,0 @@
-@import "../global/breakpoints";
-@include each-range(row, true) {
-    flex-flow: row;
-}
-@include on(larger) {
-    .row-from-larger {
-        flex-flow: row;
-    }
-}

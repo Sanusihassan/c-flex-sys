@@ -1,37 +1,48 @@
 //flex item alignment on the main axis classes and flex line alignment classes
 @import "../global/breakpoints";
 @import "../global/functions";
+
 @mixin create-row-line-spacing($breakpoint: "", $property-name: justify-content) {
     $breakpoint: rename-breakpoint($breakpoint);
-    $property: if($property-name == justify-content, justify-content, align-content);
-    $direction: if($property-name == justify-content, main, line);
+    $property: if($property-name ==justify-content, justify-content, align-content);
+    $direction: if($property-name ==justify-content, main, line);
     //alternative [data-*] selector
     $alt: data-#{$breakpoint}#{$direction};
-    @if($breakpoint != "" or $property-name != justify-content) {
-        .#{$breakpoint}#{$direction}-start, [#{$alt}="start"] {
+
+    @if($breakpoint !="" or $property-name !=justify-content) {
+
+        %#{$breakpoint}#{$direction}-start {
             #{$property}: flex-start;
         }
     }
-    @if($property == align-content) {
-        .#{$breakpoint}#{line-}stretch, [#{$alt}="stretch"] {
+
+    @if($property ==align-content) {
+
+        %#{$breakpoint}#{line-}stretch {
             #{$property}: stretch;
         }
     }
-    .#{$breakpoint}#{$direction}-end, [#{$alt}="end"] {
+
+    %#{$breakpoint}#{$direction}-end {
         #{$property}: flex-end;
     }
-    .#{$breakpoint}#{$direction}-center, [#{$alt}="center"] {
+
+    %#{$breakpoint}#{$direction}-center {
         #{$property}: center;
     }
-    $sp: if($breakpoint == "", space, sp);
-    $direction: if($property-name == justify-content, $sp, line-sp);
-    .#{$breakpoint}#{$direction}-around, [#{$alt}="space-around"] {
+
+    $sp: if($breakpoint =="", space, sp);
+    $direction: if($property-name ==justify-content, $sp, line-sp);
+
+    %#{$breakpoint}#{$direction}-around {
         #{$property}: space-around;
     }
-    .#{$breakpoint}#{$direction}-between, [#{$alt}="space-between"] {
+
+    %#{$breakpoint}#{$direction}-between {
         #{$property}: space-between;
     }
-    .#{$breakpoint}#{$direction}-evenly, [#{$alt}="space-evenly"] {
+
+    %#{$breakpoint}#{$direction}-evenly {
         #{$property}: space-evenly;
     }
 }

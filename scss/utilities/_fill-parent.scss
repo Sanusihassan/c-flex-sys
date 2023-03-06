@@ -1,47 +1,36 @@
-/*
-    .w100, .w100-each > *
-    [data-w=100], [data-w=100-each] > * {
-        width: 100%;
-    }
-*/
 %full-width {
     width: 100%;
 }
-/*
-    .h100, .h100-each > *
-    [data-h=100], [data-h=100-each] > * {
-        height: 100%;
-    }
-*/
+
 %full-height {
     height: 100%;
 }
+
 @mixin fill-parent($property: width, $unit: false, $placeholder: full-width) {
-    $short-cut: if($property == width, w, h);
-    .f#{$short-cut},
-    .f#{$short-cut}-each > *,
-    .#{$short-cut}100,
-    .#{$short-cut}100-each > *,
-    [data-#{$short-cut}="100"],
-    [data-#{$short-cut}="100-each"] > * {
+    $short-cut: if($property ==width, w, h);
+
+    %f#{$short-cut},
+    %f#{$short-cut}-each>*,
+    %#{$short-cut}100,
+    %#{$short-cut}100-each>* {
         @if($unit) {
             #{$property}: 100#{$unit};
         }
+
         @else {
             @extend %#{$placeholder};
         }
     }
 }
+
 @include fill-parent();
 @include fill-parent(height, false, full-height);
-html, body {
-    &:not([data-default]) {
-        @extend %full-height;
-    }
-}
-.w-auto {
+
+
+%w-auto {
     width: auto;
 }
-.h-auto {
+
+%h-auto {
     height: auto;
 }

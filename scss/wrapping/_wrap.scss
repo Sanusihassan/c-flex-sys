@@ -1,10 +1,13 @@
 @import "../global/breakpoints";
-.wrap, [class*=row] {
+
+%wrap {
     flex-wrap: wrap;
 }
-.wrap-reversed {
+
+%wrap-reversed {
     flex-wrap: wrap-reverse;
 }
-.nowrap {
+
+%nowrap {
     flex-wrap: nowrap;
 }

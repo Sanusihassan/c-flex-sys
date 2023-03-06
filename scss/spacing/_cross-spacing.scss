@@ -1,90 +1,110 @@
 //space distribution on the cross axis classes for flex container and for flex item
-@import "../global/breakpoints";
 @import "../global/functions";
+
 @mixin create-cross-spacing($breakpoint: "", $prop: items) {
     $breakpoint: rename-breakpoint($breakpoint);
-    $name: if($prop == items, cross, self);
-    @if($breakpoint != "") {
-        .#{$breakpoint}#{$name}-start, [data-#{$breakpoint}#{$name}="start"] {
+    $name: if($prop ==items, cross, self);
+
+    @if($breakpoint !="") {
+
+        %#{$breakpoint}#{$name}-start {
             align-#{$prop}: flex-start;
         }
     }
-    .#{$breakpoint}#{$name}-end, [data-#{$breakpoint}#{$name}="end"] {
+
+    %#{$breakpoint}#{$name}-end {
         align-#{$prop}: flex-end;
     }
-    .#{$breakpoint}#{$name}-center, [data-#{$breakpoint}#{$name}="center"] {
+
+    %#{$breakpoint}#{$name}-center {
         align-#{$prop}: center;
     }
-    .#{$breakpoint}#{$name}-baseline, [data-#{$breakpoint}#{$name}="baseline"] {
+
+    %#{$breakpoint}#{$name}-baseline {
         align-#{$prop}: baseline;
     }
-    .#{$breakpoint}#{$name}-stretch, [data-#{$breakpoint}#{$name}="stretch"] {
+
+    %#{$breakpoint}#{$name}-stretch {
         align-#{$prop}: stretch;
     }
 }
+
 //parent cross spacing
-@mixin cross-spacing($exclude-exp: each)
-{
-    @if($exclude-exp == each) {
+@mixin cross-spacing($exclude-exp: each) {
+    @if($exclude-exp ==each) {
         @include create-cross-spacing();
+
         @include on(medium) {
             @include create-cross-spacing(medium)
         }
+
         @include on(large) {
             @include create-cross-spacing(large)
         }
+
         @include on(larger) {
             @include create-cross-spacing(larger)
         }
     }
-    @else if($exclude-exp == global-only) {
+
+    @else if($exclude-exp ==global-only) {
         @include create-cross-spacing();
     }
-    @else if($exclude-exp == medium-only) {
+
+    @else if($exclude-exp ==medium-only) {
         @include on(medium) {
             @include create-cross-spacing(medium)
         }
     }
-    @else if($exclude-exp == large-only) {
+
+    @else if($exclude-exp ==large-only) {
         @include on(large) {
             @include create-cross-spacing(large)
-        }       
+        }
     }
-    @else if($exclude-exp == larger-only) {
+
+    @else if($exclude-exp ==larger-only) {
         @include on(larger) {
             @include create-cross-spacing(larger)
-        }       
+        }
     }
 }
+
 //self cross spacing
-@mixin self-cross-spacing($exclude-exp: each)
-{
-    @if($exclude-exp == each) {
+@mixin self-cross-spacing($exclude-exp: each) {
+    @if($exclude-exp ==each) {
         @include create-cross-spacing("", self);
+
         @include on(medium) {
             @include create-cross-spacing(medium, self)
         }
+
         @include on(large) {
             @include create-cross-spacing(large, self)
         }
+
         @include on(larger) {
             @include create-cross-spacing(larger, self)
         }
     }
-    @else if($exclude-exp == global-only) {
+
+    @else if($exclude-exp ==global-only) {
         @include create-cross-spacing("", self);
     }
-    @else if($exclude-exp == medium-only) {
+
+    @else if($exclude-exp ==medium-only) {
         @include on(medium) {
             @include create-cross-spacing(medium, self)
         }
     }
-    @else if($exclude-exp == large-only) {
+
+    @else if($exclude-exp ==large-only) {
         @include on(large) {
             @include create-cross-spacing(large, self)
         }
     }
-    @else if($exclude-exp == larger-only) {
+
+    @else if($exclude-exp ==larger-only) {
         @include on(larger) {
             @include create-cross-spacing(larger, self)
         }

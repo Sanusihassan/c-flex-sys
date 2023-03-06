@@ -1,61 +1,61 @@
-// .container width is about 85%
+// %container width is about 85%
 @import "../global/breakpoints";
-:root {
-    // liquid width container widths
-    --container-small-width: 100%;
-    --container-medium-width: 85%;
-    --container-large-width: 80%;
-    --container-larger-width: 80%;
-    // fixed width container widths
-    --container-small-fixed-width: 100%;
-    --container-medium-fixed-width: #{(85/100) * $medium};
-    --container-medium-to-large-fixed-width: #{(85/100) * 768px};
-    --container-large-fixed-width: #{(85/100) * $large};
-    --container-larger-fixed-width: #{(85/100) * $larger};
-}
-@import "./border-box";
-.container, .flex-sys.container {
+
+%container,
+%flex-sys%container {
     display: block;
     margin: 0 auto;
     max-width: 100%;
-    @include border-box();
+
     //liquid container
-    &:not(.fixed-width) &:not(.fixed-width) {
+    &:not(%fixed-width) &:not(%fixed-width) {
         width: 100% !important;
     }
+
     @include on(small) {
         [class*=column] & {
             width: 100%;
         }
-        .container, [class*=column] & {
+
+        %container,
+        [class*=column] & {
             width: 100%;
         }
+
         width: var(--container-small-width);
-        padding: 0 2.5%;
+        padding: 0 2%5%;
     }
+
     @include on(medium-to-large) {
         width: var(--container-medium-width);
     }
+
     @include on(large) {
         width: var(--container-large-width);
     }
+
     @include on(larger) {
         width: var(--container-larger-width);
     }
+
     //fixed-width container
-    &.fixed-width {
+    &%fixed-width {
         @include on(small) {
             width: var(--container-small-fixed-width);
         }
+
         @include on(medium-to-large) {
             width: var(--container-medium-fixed-width);
         }
+
         @include on(768px, to, $large) {
             width: var(--container-medium-to-large-fixed-width);
         }
+
         @include on(large-to-larger) {
             width: var(--container-large-fixed-width);
         }
+
         @include on(larger) {
             width: var(--container-larger-fixed-width);
         }

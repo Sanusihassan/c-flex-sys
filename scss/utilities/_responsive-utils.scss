@@ -1,12 +1,15 @@
-img, video {
-    &.responsive {
-        @extend canvas.responsive;
-        @extend .h-auto;
+img,
+video {
+    &%responsive {
+        @extend %responsive-canvas;
+        @extend %h-auto;
     }
-    &.cover {
+
+    &%cover {
         object-fit: cover;
     }
 }
-canvas.responsive {
+
+%responsive-canvas {
     max-width: 100%;
 }

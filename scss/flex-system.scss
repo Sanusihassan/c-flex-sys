@@ -1,69 +1,71 @@
 /*!
-*   flex-system.css v2.0.5
-*   (c) 2019 - 2020 by Sanusi Hassan
+*   custom-flex-system.css
+*   (c) 2019 - 2023 by Sanusi Hassan
 *   licance: MIT
 */
-:root {
-    // to customize almost everything in flex-system
-    // each mixin that has the value each as an argument
-    // example: @include grid-system(each);
-    //replace the value each with one of the following values:
+@import "./global/breakpoint-variables";
 
-    // each => include for each breakpoint (default)
-    // global-only => include for global breakpoint only.
-    // medium-only => include for medium breakpoint only.
-    // large-only => include for large breakpoint only.
-    // larger-only => include for larger breakpoint only.
-    --amount: 0.5em;
-    --p-amount: 1.15em;
+:root {
     --shrink-factor: 1;
     --grow-factor: 0;
     --portion: 1;
     --order: 6;
     @import "./grid/grid-variables";
     @include grid-variables();
+    @import "./containers/container-variables";
+    @include container-variables;
 }
 
 @import "./containers/container";
+
 @import "./containers/row_column_containers";
 
-@import "./containers/row-on";
-@import "./containers/column-on";
 
 @import "./wrapping/wrap";
-@import "./wrapping/wrap-on";
-@import "./wrapping/wrap-from";
+
 
 @import "./spacing/available";
-@include available(each);
+@include available;
 
 
 @import "./grid/create-columns";
-@include grid-system(each);
+@include grid-system;
 
 
 @import "./spacing/cross-spacing";
 @import "./spacing/shorthands";
+
 @import "./spacing/auto-margins";
 @include auto-margins(each);
+
 
 @import "./spacing/main-spacing";
 @import "./spacing/line-spacing";
 @include main-spacing(each);
 @include line-spacing(each);
 
+
 @include cross-spacing(each);
 @include self-cross-spacing(each);
 @include shorthands(each);
 
-// utilities
+// // utilities
 @import "./utilities/orders";
 @include orders(each);
 
+
 @import "./utilities/fill-parent";
+
+
 @import "./utilities/responsive-utils";
-@import "./utilities/responsive-typography";
+
 
 @import "./utilities/display/display-toggling";
+
 @import "./utilities/display/display-on";
-@import "./utilities/display/display-from";
+
+.test {
+    @extend %d-sm-block, %d-lg;
+}
+
+// @import "./utilities/display/display-from";

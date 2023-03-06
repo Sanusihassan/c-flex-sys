@@ -1,46 +1,57 @@
 // predefined shorthands
 @import "../global/breakpoints";
+
 @mixin create-shorthands($breakpoint: "") {
-    $alternate-prefix: if($breakpoint == "", slice, $breakpoint);
-    $prefix: if($breakpoint == "", "", $breakpoint#{"-"});
-    .#{$prefix}flex-initial, [data-#{$alternate-prefix}="initial"] {
-        flex: initial;// flex: 0 1 auto
+    $alternate-prefix: if($breakpoint =="", slice, $breakpoint);
+    $prefix: if($breakpoint =="", "", $breakpoint#{"-"});
+
+    %#{$prefix}flex-initial {
+        flex: initial; // flex: 0 1 auto
     }
-    .#{$prefix}flex-auto, [data-#{$alternate-prefix}="auto"]  {
-        flex: auto;// flex: 1 1 auto
+
+    %#{$prefix}flex-auto {
+        flex: auto; // flex: 1 1 auto
     }
-    .#{$prefix}flex-none, [data-#{$alternate-prefix}="none"]  {
-        flex: none;// flex: 0 0 auto
+
+    %#{$prefix}flex-none {
+        flex: none; // flex: 0 0 auto
     }
 }
-@mixin shorthands($exclude-exp: each)
-{
-    @if($exclude-exp == each) {
+
+@mixin shorthands($exclude-exp: each) {
+    @if($exclude-exp ==each) {
         @include create-shorthands();
+
         @include on(medium) {
             @include create-shorthands(onmedium);
         }
+
         @include on(large) {
             @include create-shorthands(onlarge);
         }
+
         @include on(larger) {
             @include create-shorthands(onlarger);
         }
     }
-    @else if($exclude-exp == global-only) {
+
+    @else if($exclude-exp ==global-only) {
         @include create-shorthands();
     }
-    @else if($exclude-exp == medium-only) {
+
+    @else if($exclude-exp ==medium-only) {
         @include on(medium) {
             @include create-shorthands(onmedium);
         }
     }
-    @else if($exclude-exp == large-only) {
+
+    @else if($exclude-exp ==large-only) {
         @include on(large) {
             @include create-shorthands(onlarge);
         }
     }
-    @else if($exclude-exp == larger-only) {
+
+    @else if($exclude-exp ==larger-only) {
         @include on(larger) {
             @include create-shorthands(onlarger);
         }

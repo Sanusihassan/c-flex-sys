@@ -1,0 +1,62 @@
+/*!
+*   custom-flex-system.css
+*   (c) 2019 - 2023 by Sanusi Hassan
+*   licance: MIT
+*/
+:root {
+  --shrink-factor: 1;
+  --grow-factor: 0;
+  --portion: 1;
+  --order: 6;
+  --slice-1: 8.3333333333%;
+  --col-1: 8.3333333333%;
+  --slice-2: 16.6666666667%;
+  --col-2: 16.6666666667%;
+  --fourth: 25%;
+  --col-3: 25%;
+  --third: 33.3333333333%;
+  --col-4: 33.3333333333%;
+  --slice-5: 41.6666666667%;
+  --col-5: 41.6666666667%;
+  --half: 50%;
+  --col-6: 50%;
+  --slice-7: 58.3333333333%;
+  --col-7: 58.3333333333%;
+  --slice-8: 66.6666666667%;
+  --col-8: 66.6666666667%;
+  --slice-9: 75%;
+  --col-9: 75%;
+  --slice-10: 83.3333333333%;
+  --col-10: 83.3333333333%;
+  --slice-11: 91.6666666667%;
+  --col-11: 91.6666666667%;
+  --fill: 100%;
+  --col-12: 100%;
+  --container-small-width: 100%;
+  --container-medium-width: 85%;
+  --container-large-width: 80%;
+  --container-larger-width: 80%;
+  --container-small-fixed-width: 100%;
+  --container-medium-fixed-width: 510.85px;
+  --container-medium-to-large-fixed-width: 652.8px;
+  --container-large-fixed-width: 843.2px;
+  --container-larger-fixed-width: 1020px;
+}
+
+@media only screen and (max-width: 600px) {
+  .test {
+    display: block;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 991.99px) {
+  .test {
+    display: flex;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199.99px) {
+  .test {
+    display: flex;
+  }
+}
+
+/*# sourceMappingURL=test.css.map */

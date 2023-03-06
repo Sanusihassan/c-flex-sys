@@ -1,51 +1,47 @@
 @import "../../global/breakpoints";
-.none, [data-display="none"] {
+
+%none {
     display: none;
 }
-//.display display an element
+
+//%display display an element
 %flex {
     display: flex;
 }
+
 %inline-flex {
     display: inline-flex;
 }
+
 %block {
     display: block;
 }
+
 %inline-block {
     display: inline-block;
 }
+
 %initial {
     display: initial;
 }
-.display, .display-each > * {
+
+%display,
+%display-each>* {
     @extend %flex;
-    &.inline-flex {
+
+    &%inline-flex {
         @extend %inline-flex;
     }
-    &.block {
+
+    &%block {
         @extend %block;
     }
-    &.inline-block {
+
+    &%inline-block {
         @extend %inline-block;
     }
-    &.initial {
+
+    &%initial {
         @extend %initial;
     }
-}
-// data-display selectors
-[data-display="flex"], [data-display-each="flex"] > * {
-    @extend %flex;
-}
-[data-display="inline-flex"], [data-display-each="inline-flex"] > * {
-    @extend %inline-flex;
-}
-[data-display="block"], [data-display-each="block"] > * {
-    @extend %block;
-}
-[data-display="inline-block"], [data-display-each="inline-block"] > * {
-    @extend %inline-block;
-}
-[data-display="initial"], [data-display-each="initial"] > * {
-    @extend %initial;
 }
